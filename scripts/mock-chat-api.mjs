@@ -20,7 +20,7 @@ import { randomUUID } from 'node:crypto';
 
 const PORT = Number(process.argv[2] ?? process.env.MOCK_PORT ?? 8000);
 const LATENCY_MS = 700;
-const WA = 'https://wa.me/593978923586';
+const WA = 'https://wa.me/593963261688';
 const DEMO_SESSION_LIMIT = 12;
 const DEMO_REMAINING_FROM = 4;
 const sessionCounts = new Map();

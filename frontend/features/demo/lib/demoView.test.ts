@@ -41,8 +41,8 @@ test('booking message ends with the demo reference', () => {
 });
 
 test('booking url encodes the message and keeps the reference intact', () => {
-  const url = bookingUrl('593978923586', 'Hola [ref: sector-salud]');
-  assert.equal(url, 'https://wa.me/593978923586?text=Hola%20%5Bref%3A%20sector-salud%5D');
+  const url = bookingUrl('593963261688', 'Hola [ref: sector-salud]');
+  assert.equal(url, 'https://wa.me/593963261688?text=Hola%20%5Bref%3A%20sector-salud%5D');
   const text = new URL(url).searchParams.get('text');
   assert.equal(text, 'Hola [ref: sector-salud]');
 });
