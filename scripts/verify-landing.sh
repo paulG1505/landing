@@ -35,7 +35,7 @@ file_exists() { [ -f "$OUT/$1" ] && ok "$2" || bad "$2 (missing $1)"; }
 heading "Requirement: correct contact data"
 absent "995090170"          "old number 995090170 is gone"
 absent "+593 99 509 0170"   "old formatted number is gone"
-present "593978923586"      "official number 593978923586 is present"
+present "593963261688"      "official number 593963261688 is present"
 
 heading "Requirement: only defensible claims"
 # Figures are searched as they appeared in the copy ("99.2% de precisión"), so a class like w-[85%] is not a false positive.

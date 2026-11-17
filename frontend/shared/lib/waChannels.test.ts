@@ -11,7 +11,7 @@ test('channelLink opens the business number with the channel message', () => {
     const link = channelLink(slug);
     assert.ok(link);
     const url = new URL(link);
-    assert.equal(url.origin + url.pathname, 'https://wa.me/593978923586');
+    assert.equal(url.origin + url.pathname, 'https://wa.me/593963261688');
     assert.equal(url.searchParams.get('text'), WA_CHANNELS[slug]);
   }
 });
