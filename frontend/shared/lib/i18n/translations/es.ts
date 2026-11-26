@@ -308,20 +308,20 @@ export const es = {
     location: "Quito, Ecuador",
     privacy: "Política de privacidad",
     navigation: "Navegación del pie",
-    copyright: "© 2026 AIworks · Quito, Ecuador",
+    copyright: "© 2026 AIworks · RUC 1727406223001 · Quito, Ecuador",
   },
   legal: {
     back: "Volver al inicio",
     privacy: {
       title: "Política de privacidad",
-      updated: "Última actualización: 28 de octubre de 2026",
+      updated: "Última actualización: 25 de noviembre de 2026",
       intro:
         "Esta política explica qué datos personales recibe AIworks a través de este sitio, para qué los usa y cómo puede ejercer sus derechos según la Ley Orgánica de Protección de Datos Personales del Ecuador (LOPDP).",
       sections: [
         {
           title: "Quién es responsable",
           paragraphs: [
-            "AIworks, consultora de software con sede en Quito, Ecuador, es responsable del tratamiento de los datos descritos aquí. Puede escribirnos a {email}.",
+            "AIworks (RUC 1727406223001), consultora de software con sede en Quito, Ecuador, es responsable del tratamiento de los datos descritos aquí. Puede escribirnos a {email}.",
           ],
         },
         {
