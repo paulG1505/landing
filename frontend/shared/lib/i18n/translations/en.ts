@@ -308,20 +308,20 @@ export const en = {
     location: "Quito, Ecuador",
     privacy: "Privacy policy",
     navigation: "Footer navigation",
-    copyright: "© 2026 AIworks · Quito, Ecuador",
+    copyright: "© 2026 AIworks · RUC (tax ID) 1727406223001 · Quito, Ecuador",
   },
   legal: {
     back: "Back to home",
     privacy: {
       title: "Privacy policy",
-      updated: "Last updated: October 28, 2026",
+      updated: "Last updated: November 25, 2026",
       intro:
         "This policy explains which personal data AIworks receives through this website, what it is used for, and how you can exercise your rights under Ecuador's Organic Law on Personal Data Protection (LOPDP).",
       sections: [
         {
           title: "Who is responsible",
           paragraphs: [
-            "AIworks, a software consultancy based in Quito, Ecuador, is responsible for processing the data described here. You can write to us at {email}.",
+            "AIworks (Ecuadorian tax ID, RUC 1727406223001), a software consultancy based in Quito, Ecuador, is responsible for processing the data described here. You can write to us at {email}.",
           ],
         },
         {
