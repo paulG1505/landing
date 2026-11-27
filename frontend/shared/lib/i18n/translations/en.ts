@@ -53,6 +53,52 @@ export const en = {
     trust: "A person reviews anything sensitive.",
     trackRecord: "The brand is new; the experience is not: over 7 years solving processes.",
     logTimes: ["10:02", "10:02", "10:02", "10:03"],
+    sectors: {
+      comercio: {
+        label: "Retail",
+        question: "Do you have 5 kg bags of rice, and can you deliver today?",
+        answer: "Yes, we do. We deliver today from 4 p.m. What is the address?",
+        log: [
+          { label: "input", text: "Asks about stock and delivery.", kind: "entry" as const },
+          { label: "ai", text: "Checks inventory: in stock.", kind: "ai" as const },
+          { label: "decision", text: "Offers delivery today.", kind: "ai" as const },
+          { label: "record", text: "Order open, address missing.", kind: "entry" as const },
+        ],
+      },
+      salud: {
+        label: "Health",
+        question: "Is there a general medicine appointment tomorrow?",
+        answer: "Yes: at 9:30 or at 11:00. Which do you prefer?",
+        log: [
+          { label: "input", text: "Asks for a general medicine appointment.", kind: "entry" as const },
+          { label: "ai", text: "Checks tomorrow's schedule.", kind: "ai" as const },
+          { label: "decision", text: "Offers two open times.", kind: "ai" as const },
+          { label: "review", text: "Front desk confirms the appointment.", kind: "human" as const },
+        ],
+      },
+      finanzas: {
+        label: "Finance",
+        question: "What do I need to open a savings account?",
+        answer: "Your ID and a utility bill. Shall I book you at a branch?",
+        log: [
+          { label: "input", text: "Asks how to open an account.", kind: "entry" as const },
+          { label: "ai", text: "Answers with the requirements.", kind: "ai" as const },
+          { label: "decision", text: "Offers a branch appointment.", kind: "ai" as const },
+          { label: "record", text: "Prospective member noted.", kind: "entry" as const },
+        ],
+      },
+      logistica: {
+        label: "Logistics",
+        question: "How much does it cost to ship a box to Cuenca?",
+        answer: "It depends on the weight. How many kilos does the box weigh?",
+        log: [
+          { label: "input", text: "Asks for a quote to Cuenca.", kind: "entry" as const },
+          { label: "ai", text: "Needs the weight to quote.", kind: "ai" as const },
+          { label: "decision", text: "Asks before giving a price.", kind: "ai" as const },
+          { label: "record", text: "Quote in progress.", kind: "entry" as const },
+        ],
+      },
+    },
   },
   howWeWork: {
     page: {

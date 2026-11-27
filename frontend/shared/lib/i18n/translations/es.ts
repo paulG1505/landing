@@ -53,6 +53,52 @@ export const es = {
     trust: "Una persona revisa lo sensible.",
     trackRecord: "La marca es nueva; la experiencia, no: más de 7 años resolviendo procesos.",
     logTimes: ["10:02", "10:02", "10:02", "10:03"],
+    sectors: {
+      comercio: {
+        label: "Comercio",
+        question: "¿Tienen arroz de 5 kg y entregan hoy?",
+        answer: "Sí, hay. Entregamos hoy desde las 16:00. ¿A qué dirección?",
+        log: [
+          { label: "entrada", text: "Pregunta por stock y entrega.", kind: "entry" as const },
+          { label: "ia", text: "Revisa inventario: hay stock.", kind: "ai" as const },
+          { label: "decisión", text: "Ofrece la entrega de hoy.", kind: "ai" as const },
+          { label: "registro", text: "Pedido abierto, falta dirección.", kind: "entry" as const },
+        ],
+      },
+      salud: {
+        label: "Salud",
+        question: "¿Hay turno mañana con medicina general?",
+        answer: "Sí: a las 09:30 o a las 11:00. ¿Cuál prefiere?",
+        log: [
+          { label: "entrada", text: "Pide turno de medicina general.", kind: "entry" as const },
+          { label: "ia", text: "Revisa la agenda de mañana.", kind: "ai" as const },
+          { label: "decisión", text: "Ofrece dos horarios libres.", kind: "ai" as const },
+          { label: "revisión", text: "Recepción confirma la cita.", kind: "human" as const },
+        ],
+      },
+      finanzas: {
+        label: "Finanzas",
+        question: "¿Qué necesito para abrir una cuenta de ahorros?",
+        answer: "Su cédula y una planilla de servicios. ¿Le agendo en una agencia?",
+        log: [
+          { label: "entrada", text: "Consulta para abrir una cuenta.", kind: "entry" as const },
+          { label: "ia", text: "Responde con los requisitos.", kind: "ai" as const },
+          { label: "decisión", text: "Propone cita en agencia.", kind: "ai" as const },
+          { label: "registro", text: "Socio potencial anotado.", kind: "entry" as const },
+        ],
+      },
+      logistica: {
+        label: "Logística",
+        question: "¿Cuánto cuesta enviar una caja a Cuenca?",
+        answer: "Depende del peso. ¿Cuántos kilos pesa la caja?",
+        log: [
+          { label: "entrada", text: "Cotiza un envío a Cuenca.", kind: "entry" as const },
+          { label: "ia", text: "Falta el peso para cotizar.", kind: "ai" as const },
+          { label: "decisión", text: "Pregunta antes de dar precio.", kind: "ai" as const },
+          { label: "registro", text: "Cotización en curso.", kind: "entry" as const },
+        ],
+      },
+    },
   },
   howWeWork: {
     page: {
