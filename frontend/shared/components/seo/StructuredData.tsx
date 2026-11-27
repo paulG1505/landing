@@ -3,7 +3,7 @@ import { SITE_URL } from '@/shared/constants/site';
 import { CONTACT_INFO } from '@/shared/constants';
 import { es } from '@/shared/lib/i18n/translations/es';
 
-// Only declare what the visible page says; the FAQ matches the Spanish copy word for word.
+// Only declare what the visible page says.
 export function StructuredData() {
   const organization = {
     '@context': 'https://schema.org',
@@ -54,16 +54,6 @@ export function StructuredData() {
     },
   };
 
-  const faq = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: es.faq.items.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: { '@type': 'Answer', text: item.answer },
-    })),
-  };
-
   return (
     <>
       <Script
@@ -77,12 +67,6 @@ export function StructuredData() {
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
-      />
-      <Script
-        id="ld-preguntas"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
       />
     </>
   );

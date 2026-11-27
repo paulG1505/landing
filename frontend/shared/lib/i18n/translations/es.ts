@@ -55,6 +55,11 @@ export const es = {
     logTimes: ["10:02", "10:02", "10:02", "10:03"],
   },
   howWeWork: {
+    page: {
+      title: "Cómo trabajamos",
+      description:
+        "Tres fases, cada una con algo concreto que usted recibe al final: descubrimiento, arquitectura y ejecución, y puesta en producción.",
+    },
     eyebrow: "Cómo trabajamos",
     title: { before: "Tres fases.", highlight: "Sin sorpresas." },
     phaseLabel: "Fase",
@@ -123,6 +128,11 @@ export const es = {
     ctaMessage: "Hola, quiero el asistente de WhatsApp para mi negocio.",
   },
   faq: {
+    page: {
+      title: "Preguntas frecuentes",
+      description:
+        "Cuánto cuesta, cuánto demora, qué pasa si la IA se equivoca y qué pasa con los datos de su empresa.",
+    },
     eyebrow: "Preguntas frecuentes",
     title: { before: "Lo que suelen", highlight: "preguntarnos." },
     items: [

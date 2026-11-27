@@ -445,6 +445,9 @@ section[id] {
 .screen {
   padding: 160px 0;
 }
+.page-screen {
+  padding: 96px 0 160px;
+}
 .screen-wrap {
   max-width: 1440px;
   margin: 0 auto;
@@ -515,6 +518,9 @@ section[id] {
 @media (max-width: 900px) {
   .screen {
     padding: 96px 0;
+  }
+  .page-screen {
+    padding: 48px 0 96px;
   }
   .screen-wrap {
     padding: 0 20px;

@@ -55,6 +55,11 @@ export const en = {
     logTimes: ["10:02", "10:02", "10:02", "10:03"],
   },
   howWeWork: {
+    page: {
+      title: "How we work",
+      description:
+        "Three phases, each ending with something concrete you receive: discovery, architecture and build, and going live.",
+    },
     eyebrow: "How we work",
     title: { before: "Three phases.", highlight: "No surprises." },
     phaseLabel: "Phase",
@@ -123,6 +128,11 @@ export const en = {
     ctaMessage: "Hi, I'd like the WhatsApp assistant for my business.",
   },
   faq: {
+    page: {
+      title: "Frequently asked questions",
+      description:
+        "What it costs, how long it takes, what happens if the AI gets it wrong and what happens to your company's data.",
+    },
     eyebrow: "Frequently asked questions",
     title: { before: "What people", highlight: "usually ask us." },
     items: [

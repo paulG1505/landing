@@ -216,7 +216,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 3. Páginas nuevas
 
-- [ ] **3.1 `/como-trabajamos`**
+- [x] **3.1 `/como-trabajamos`**
   - **Archivos:** nuevo `app/como-trabajamos/page.tsx`; `features/how-we-work/components/HowWeWork.tsx`
     (titular con `.display-m`, sin `SectionHeading` numerado, sin `id="proceso"`); `es.ts`/`en.ts`
     (`howWeWork.page.title`, `howWeWork.page.description`).
@@ -227,7 +227,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** el texto es el mismo de hoy (solo cambia el estilo) y la página carga desde el
     pie.
 
-- [ ] **3.2 `/preguntas` con su `FAQPage`**
+- [x] **3.2 `/preguntas` con su `FAQPage`**
   - **Archivos:** nuevo `app/preguntas/page.tsx`; nuevo
     `shared/components/seo/FaqStructuredData.tsx` (el bloque `faq` que hoy está en
     `StructuredData.tsx`); `StructuredData.tsx` (quitar `FAQPage`); `features/faq/components/Faq.tsx`
@@ -240,7 +240,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** las preguntas visibles coinciden palabra por palabra con `es.faq.items`, y el
     acordeón abre y cierra con teclado.
 
-- [ ] **3.3 Sitemap**
+- [x] **3.3 Sitemap**
   - **Archivo:** `app/sitemap.ts`.
   - **Consume:** 2.10, 3.1, 3.2. **Produce:** las 8 URL de `design.md` §7.6, `lastModified` con la fecha
     del día en que abres el PR.
