@@ -404,6 +404,19 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** pasan todos los escenarios de amanecer de `specs/landing-motion/spec.md`,
     también con «Reducir movimiento» (no corre) y con JavaScript desactivado (estado final).
 
+- [x] **8.5 Noche desde el primer pintado** (agregada el 2026-11-27 a pedido de Katty: sin ella se
+  veía el día ~700 ms antes de la noche, mientras carga React)
+  - **Archivos:** `features/hero/lib/dawnPlan.ts` (+test: `DAWN_PENDING_CLASS`, `dawnPendingScript()`);
+    `app/layout.tsx` (el script del `<head>` usa `dawnPendingScript()`); `app/globals.css`
+    (`html.dawn-pending`: fondo Noche en el hero y el día recortado a `circle(0)`); `useDawn.ts` (quita
+    la clase al montar, corra o no el amanecer).
+  - **Consume:** 8.2, 8.3. **Produce:** la clase `dawn-pending` en `<html>` antes de pintar, con las
+    mismas condiciones de `shouldPlayDawn`; se quita sola a los 3 s si React no llegó.
+  - **Test:** el script ejecutado contra objetos simulados agrega `js` siempre y `dawn-pending` solo en
+    `/` sin hash, sin scroll, sin movimiento reducido y sin la clave; con storage que lanza, no la agrega.
+  - **Prueba:** `npm test` verde; en el navegador, el primer pintado del hero ya es Noche.
+  - **Terminado cuando:** no se ve el día antes de la noche, y con JavaScript desactivado se ve el día.
+
 ## 9. Verificación y documentación
 
 - [x] **9.0 `e2e-landing.sh` sin depender de Google Chrome** (agregada el 2026-11-27: Chrome no está
@@ -420,7 +433,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     temporal de `out/` que tenga un elemento de 2000 px de ancho → `FAIL` en los 7 anchos.
   - **Terminado cuando:** las dos pruebas dan lo esperado y la ruta con Chrome no cambió.
 
-- [ ] **9.1 `verify-landing.sh` al día**
+- [x] **9.1 `verify-landing.sh` al día**
   - **Archivo:** `scripts/verify-landing.sh`.
   - **Consume:** todo lo anterior. **Produce:** en «Spanish by default», `Built for the work your team`
     pasa a `The work your team does by hand` (la frase de `en.hero.lineA`); chequeos nuevos:
@@ -430,7 +443,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Prueba:** `cd frontend && npm run build && cd .. && bash scripts/verify-landing.sh` → `0 fail`.
   - **Terminado cuando:** todo en PASS y el cambio de la frase va explicado en la descripción del PR.
 
-- [ ] **9.2 Documentación**
+- [x] **9.2 Documentación**
   - **Archivos:** `frontend/CLAUDE.md` (árbol de carpetas, sistema visual v3, movimiento: amanecer,
     destello, entradas por palabra; sin tema; anclas y alias), `CLAUDE.md` raíz (en «Chat de la web»,
     que la home tiene la demo embebida en `#demo`; en «Reglas», que `/privacidad` ya cuenta la clave del

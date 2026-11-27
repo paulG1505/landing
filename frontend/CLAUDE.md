@@ -12,38 +12,42 @@ This project follows **Screaming Architecture** - the folder structure screams w
 ```
 frontend/
 ├── app/                          # Next.js App Router (infraestructura)
-│   ├── layout.tsx               # Layout raíz: fuentes, script de tema, header/footer
-│   ├── page.tsx                 # Inicio (secciones con next/dynamic)
-│   ├── privacidad/page.tsx      # Política de privacidad (LOPDP)
+│   ├── layout.tsx               # Layout raíz: fuentes, script del <head> (js + noche del amanecer), footer, chat, destello
+│   ├── page.tsx                 # Inicio: 5 pantallas (hero y el resto con next/dynamic)
+│   ├── como-trabajamos/page.tsx # Las 3 fases + cinta de tecnologías
+│   ├── preguntas/page.tsx       # FAQ + su FAQPage (el único del sitio)
+│   ├── privacidad/page.tsx      # Política de privacidad (LOPDP); único lugar con el RUC
+│   ├── demo/page.tsx            # /demo#<slug> (sin hash: galería)
 │   ├── wa/page.tsx              # Redirección a WhatsApp con el mensaje genérico (`/wa`)
 │   ├── wa/[channel]/page.tsx    # Redirecciones fijas a WhatsApp por canal (`/wa/ig`, `/wa/fb`, `/wa/volante`)
-│   ├── globals.css              # Tokens, tema claro/oscuro, clases del sistema, movimiento
+│   ├── globals.css              # Tokens v3, tonos por sección, clases del sistema, movimiento
 │   ├── icon.svg / favicon.ico / apple-icon.png
 │   ├── manifest.ts · sitemap.ts
 │
 ├── features/                     # Bloques de negocio (EL NÚCLEO)
-│   ├── hero/                    # Titular de categoría + terminal del registro operativo
-│   ├── services/                # 01 Qué construimos (4 líneas de servicio)
-│   ├── processes/               # 02 Procesos que se automatizan (3 filas)
-│   ├── how-we-work/             # 03 Cómo trabajamos (3 fases + cinta de 15 tecnologías)
-│   ├── why/                     # 04 Por qué AIworks + carrusel de ejemplos
-│   ├── pricing/                 # 06 Precios (3 filas del asistente + fila «Sistema a medida»)
-│   ├── faq/                     # 07 FAQ (acordeón accesible)
-│   ├── final-cta/               # 08 Cierre: WhatsApp + correo
-│   ├── demo/                    # Página /demo#<slug> (sin hash: galería)
+│   ├── hero/                    # Pantalla 1: titular, conversación de ejemplo y amanecer
+│   │   ├── lib/                 # dawnPlan (cuándo corre, línea de tiempo, script del <head>), scramble (puros, con tests)
+│   │   ├── hooks/               # useDawn
+│   │   └── components/          # Hero, DawnNight (clon de noche aria-hidden + inert)
+│   ├── pain-points/             # Pantalla 2: «Quiero dejar de…» (#servicios)
+│   ├── demo/                    # Pantalla 3 «IA con orden» (#demo) y la página /demo
 │   │   ├── data/                # sectorDemos.ts (solo slugs sector-*)
-│   │   ├── lib/                 # demoView, demoPhase (puros, con tests)
-│   │   └── components/          # DemoAssistant, DemoGallery, DemoNotice…, DemosSection (05 «Pruébelo usted mismo» en la portada)
+│   │   ├── lib/                 # homeDemo (guion de la home), demoView, demoPhase (puros, con tests)
+│   │   └── components/          # HomeDemo, DemoAssistant, DemoGallery, DemoNotice…
+│   ├── pricing/                 # Pantalla 4: precio (#precios)
+│   ├── final-cta/               # Pantalla 5: «¿Qué le está costando más?» (#contacto)
+│   ├── how-we-work/             # Página /como-trabajamos
+│   ├── faq/                     # Página /preguntas (acordeón accesible)
 │   └── legal/                   # Página de privacidad
 │
 ├── shared/
 │   ├── components/
-│   │   ├── ui/                 # Container, SectionHeading, WhatsAppLogo, WaRedirect, chat/ (ChatLauncher, ChatPanel, Conversation, useConversation, launcherState, endedReply, chatOutcome)
-│   │   ├── layout/             # Header, Footer, LanguageSelector, ThemeToggle, ScrollProgressBar
+│   │   ├── ui/                 # Container, Wordmark, WhatsAppLogo, WaRedirect, flash/ (ClickFlash, flashPlan, flashBus), chat/ (ChatLauncher, ChatPanel, Conversation, useConversation, launcherState, endedReply, chatOutcome)
+│   │   ├── layout/             # SiteHeader (y HeaderOutsideHome), Footer, LanguageSelector
 │   │   ├── providers/          # StoreRehydrate, MotionProvider, ScrollToAnchor
-│   │   └── seo/                # StructuredData (JSON-LD)
-│   ├── hooks/                   # useReveal, useIntersectionObserver, useMediaQuery…
-│   ├── lib/                     # i18n (es/en), theme.ts, whatsapp.ts, waChannels.ts, demoSlug.ts, publicUrl.ts, utils.ts
+│   │   └── seo/                # StructuredData (Organization + Service), FaqStructuredData
+│   ├── hooks/                   # useReveal, useIntersectionObserver, useMediaQuery, usePrefersReducedMotion, useTranslation
+│   ├── lib/                     # i18n (es/en), anchorAliases.ts, whatsapp.ts, waChannels.ts, demoSlug.ts, publicUrl.ts, utils.ts
 │   ├── store/                   # Zustand: idioma, UI
 │   ├── types/ · constants/
 │
@@ -99,42 +103,51 @@ frontend/
   Úsala para pautas de UX, accesibilidad y movimiento. Sus recomendaciones de paleta y
   tipografía son genéricas: las decisiones de marca de abajo mandan.
 
-### Sistema visual (v2, sep 2026)
+### Sistema visual (v3, nov 2026)
 
 Los tokens y su contraste calculado están comentados al inicio de `app/globals.css`.
 
-- **Tipografía**: Bricolage Grotesque 600 para titulares (`font-display`), Geist para cuerpo y
-  UI, Geist Mono para eyebrows, etiquetas y la terminal. La palabra clave de cada titular se
-  marca **solo con color** (Bricolage no tiene cursiva real; nada de cursiva sintética).
-- **Color**: neutro claro (`--papel` #F7F6F3, `--arena` #EEECE6) y un único acento,
-  **petróleo** (`--marca` #0B6571 en claro, #5CC3CC en oscuro). El petróleo va en la palabra
-  clave, enlaces, foco, íconos de servicio, barra de progreso y botón principal
-  (`--boton`). Única excepción de color: el verde de WhatsApp en su botón flotante.
-- **Tema**: claro/oscuro con `<html data-theme>`. Lo resuelve un script en el `<head>` antes
-  del primer pintado; el botón del header lo fija (`shared/lib/theme.ts`). Todo color de un
-  componente sale de un token que tiene valor en ambos temas; nada de hex fijos que solo
-  funcionen en uno.
-- **Contraste**: todo texto ≥ 4,5:1 en ambos temas. Si agregas un par nuevo, calcúlalo y
+- **Tipografía**: Bricolage Grotesque para titulares (`.display` con la escala
+  `--d-xl/--d-l/--d-m/--h`), Geist para cuerpo y UI, Geist Mono para etiquetas (`.mono-label`).
+  La palabra clave de cada titular se marca **solo con color**.
+- **Color**: Papel (`--papel` #F7F6F3) y Noche (`--noche` #171513), con un único acento
+  petróleo: `--marca` #0B6571 sobre Papel y `--marca-clara` #5CC3CC sobre Noche.
+- **Tono por sección, sin selector de tema**: cada `<section>` lleva `data-tone="light|dark"`
+  y las oscuras la clase `.tone-night`, que redefine `--c-texto`, `--c-media`, `--c-regla` y
+  `--c-clave`. El destello lee `data-tone`. No hay modo oscuro ni preferencia guardada.
+- **Contraste**: todo texto ≥ 4,5:1 sobre su tono. Si agregas un par nuevo, calcúlalo y
   anótalo junto al token.
-- **Estructura**: bloques con eyebrow numerado + titular en dos líneas (`SectionHeading`),
-  filas con filete para listas; las tarjetas se reservan para el carrusel de ejemplos.
+- **Estructura**: la home son 5 pantallas (`.screen` + `.screen-wrap`), con el segundo renglón
+  de los titulares corrido (`.indent-step`). Las páginas internas usan `.page-screen`.
+- **Anclas**: `#servicios`, `#demo`, `#precios` y `#contacto`. Las viejas (`#procesos`,
+  `#ejemplos`, `#porque`, `#demos`, `#proceso`, `#preguntas`) se resuelven en
+  `shared/lib/anchorAliases.ts` y las aplica `ScrollToAnchor`. Si quitas o renombras un id,
+  agrega su alias y actualiza `app/sitemap.ts`.
 - **Afirmaciones**: cero cifras inventadas, cero sellos, cero superlativos. Todo ejemplo va
   rotulado como tal. `scripts/verify-landing.sh` lo comprueba sobre el build.
 
 ### Movimiento
 
-- Revelados al hacer scroll y la entrada del hero: **CSS** (`.reveal`, `.line-mask`,
-  `useReveal`). Su estado oculto vive bajo `html.js` y
-  `prefers-reduced-motion: no-preference`, así el contenido se ve sin JS.
-- **Motion** solo donde aporta algo que CSS no resuelve bien: salidas animadas
-  (`AnimatePresence`: menú móvil, burbuja de WhatsApp, ícono de tema), resortes ligados al
-  scroll (línea de fases, barra de progreso) y gestos (`whileHover`/`whileTap` del botón de
-  WhatsApp). Usa los componentes `m.*`, no `motion.*` (`LazyMotion` va en modo `strict`).
-- `MotionConfig reducedMotion="user"` aplica el movimiento reducido a todo Motion; en CSS,
-  cada animación nueva va dentro de `@media (prefers-reduced-motion: no-preference)`.
-- Solo `transform` y `opacity`. Desplazamientos de hover < 2 px, salvo las opciones de «Quiero
-  dejar de…» (`.option-row`), que se corren 6 px como en la maqueta v3 (decisión de Paul, 2026-11-27). Todo movimiento que dure
-  más de 5 s debe poder pausarse (la cinta de tecnologías tiene su botón).
+- **Amanecer** (`features/hero`): la primera visita de la pestaña arranca en Noche, muestra la
+  conversación y abre el día con un círculo de luz desde el `✓✓`, mientras «hecho solo.» se
+  descifra. Corre una vez por sesión (`sessionStorage['aiworks-amanecer']`), no corre con hash,
+  con scroll ni con movimiento reducido, y cualquier toque, tecla, rueda o scroll lo salta. El
+  HTML servido es el día; el script del `<head>` (`dawnPendingScript`) pinta la noche antes de
+  que cargue React y se quita solo a los 3 s si React no llega.
+- **Destello** (`shared/components/ui/flash`): un solo nodo `.fx` responde a cada clic en un
+  enlace o botón, con el tono de la sección; `triggerFlash` lo dispara desde código.
+- **Entradas por palabra**: las pantallas 2 a 5 usan `useReveal` y marcan sus bloques con
+  `.w`, `.w2`…`.w5` (`.w-flat` sin desenfoque). Entran una sola vez.
+- El estado oculto de todo lo anterior vive bajo `html.js` y
+  `prefers-reduced-motion: no-preference`, así el contenido se ve sin JS y quieto con
+  movimiento reducido (el destello queda en un resplandor de 240 ms).
+- **Motion** solo donde aporta algo que CSS no resuelve bien (la línea de fases de
+  `/como-trabajamos`). Usa los componentes `m.*`, no `motion.*` (`LazyMotion` va en modo
+  `strict`). `MotionConfig reducedMotion="user"` aplica el movimiento reducido a todo Motion.
+- Solo `transform`, `opacity`, `filter` y `clip-path`. Desplazamientos de hover < 2 px, salvo las
+  opciones de «Quiero dejar de…» (`.option-row`), que se corren 6 px como en la maqueta v3
+  (decisión de Paul, 2026-11-27). Todo movimiento que dure más de 5 s debe poder pausarse (la
+  cinta de tecnologías tiene su botón).
 
 ## Rutas /wa
 
@@ -221,8 +234,9 @@ npm run lint
 ## 🎨 Styling Conventions
 
 - Utilidades de Tailwind para layout; tokens de `globals.css` para color y tipografía.
-- Las clases del sistema (`.action`, `.eyebrow`, `.heading`…) viven en `@layer components`
-  para que una utilidad pueda sobrescribirlas.
+- Parte de las clases del sistema vive en `@layer components` y una utilidad la sobrescribe
+  (`.indent-step` cede ante `m-0`: usa `my-0 mr-0`). Otras van fuera de capa y ganan a la
+  utilidad (`.typing-dot` frente a `bg-*`: el color va en `style`).
 - No hay `tailwind.config.ts`: Tailwind 4 se configura con `@theme` en `globals.css`.
 
 ## 🔄 State Management with Zustand

@@ -33,6 +33,10 @@ npm run build   # genera frontend/out, lo mismo que publica el CI
 
 - Botón y panel en `frontend/shared/components/ui/chat/`; el panel es un chunk aparte que
   solo se descarga al hacer clic. La demo de un prospecto es `/demo#<nombre>-<sufijo>`; `/demo` sin hash muestra la galería de demos de sector.
+- La home tiene la demo embebida en `#demo` (`features/demo/components/HomeDemo.tsx`): cuatro
+  negocios de ejemplo con su conversación guionada y «Ahora pregúntele usted», que usa el mismo
+  `useConversation` contra el tenant `demo-sector-<sector>`. Con el simulador se prueba igual
+  (`limite`, `falla`, `lento`).
 - La única variable pública es `NEXT_PUBLIC_API_URL` (por defecto `http://127.0.0.1:8000` en
   desarrollo y `https://api.aiworks.lat` en el build). Se fija al construir, no al ejecutar.
 - Probar sin la API real, con el servidor simulado (Node puro):
@@ -55,3 +59,6 @@ cd frontend && npm run dev                # en otra terminal
 - La página `/privacidad` promete que no hay analítica ni cookies de seguimiento y describe lo
   que guarda el chat (30 días, IP solo como huella diaria). Cualquier función que guarde datos
   del visitante obliga a actualizarla.
+- Hoy el navegador guarda el idioma y, en la pestaña, la sesión del chat, si se cerró el aviso
+  del asistente y si ya se vio el amanecer (`aiworks-amanecer`). `/privacidad` lo cuenta así; el
+  RUC vive solo ahí, no en el pie.
