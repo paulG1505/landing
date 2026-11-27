@@ -24,7 +24,7 @@ export function Closing() {
             rel="noopener noreferrer"
             aria-label={`${copy.whatsapp} ${newTabNotice(locale)}`}
             data-flash=""
-            className="press inline-flex h-[58px] items-center gap-2.5 bg-[var(--marca-clara)] px-[30px] text-lg font-semibold text-noche no-underline max-[900px]:w-full max-[900px]:justify-center"
+            className="press inline-flex h-[58px] items-center gap-2.5 bg-[var(--marca-clara)] px-[30px] whitespace-nowrap text-lg font-semibold text-noche no-underline max-[900px]:w-full max-[900px]:justify-center max-[900px]:px-5"
           >
             {copy.whatsapp} <span aria-hidden="true">↗</span>
           </a>

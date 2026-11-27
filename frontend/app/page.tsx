@@ -7,38 +7,13 @@ const PainPoints = dynamic(
   { loading: () => null }
 );
 
-const Processes = dynamic(
-  () => import('@/features/processes/components/Processes').then((mod) => ({ default: mod.Processes })),
-  { loading: () => null }
-);
-
-const HowWeWork = dynamic(
-  () => import('@/features/how-we-work/components/HowWeWork').then((mod) => ({ default: mod.HowWeWork })),
-  { loading: () => null }
-);
-
-const Why = dynamic(
-  () => import('@/features/why/components/Why').then((mod) => ({ default: mod.Why })),
-  { loading: () => null }
-);
-
-const DemosSection = dynamic(
-  () => import('@/features/demo/components/DemosSection').then((mod) => ({ default: mod.DemosSection })),
+const HomeDemo = dynamic(
+  () => import('@/features/demo/components/HomeDemo').then((mod) => ({ default: mod.HomeDemo })),
   { loading: () => null }
 );
 
 const Pricing = dynamic(
   () => import('@/features/pricing/components/Pricing').then((mod) => ({ default: mod.Pricing })),
-  { loading: () => null }
-);
-
-const Faq = dynamic(
-  () => import('@/features/faq/components/Faq').then((mod) => ({ default: mod.Faq })),
-  { loading: () => null }
-);
-
-const HomeDemo = dynamic(
-  () => import('@/features/demo/components/HomeDemo').then((mod) => ({ default: mod.HomeDemo })),
   { loading: () => null }
 );
 
@@ -54,12 +29,7 @@ export default function Home() {
       <Hero />
       <PainPoints />
       <HomeDemo />
-      <Processes />
-      <HowWeWork />
-      <Why />
-      <DemosSection />
       <Pricing />
-      <Faq />
       <Closing />
     </>
   );

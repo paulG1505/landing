@@ -39,13 +39,9 @@ export function StructuredData() {
       '@type': 'OfferCatalog',
       name: 'Qué construimos',
       itemListElement: [
-        ...es.services.items.map((item) => ({
+        ...es.painPoints.serviceNames.map((name) => ({
           '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: item.title,
-            description: item.description,
-          },
+          itemOffered: { '@type': 'Service', name },
         })),
         {
           '@type': 'Offer',

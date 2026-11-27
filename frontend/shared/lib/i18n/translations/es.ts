@@ -1,22 +1,13 @@
 export const es = {
   header: {
-    logo: "AIworks",
     homeLabel: "AIworks, ir al inicio",
     navLabel: "Principal",
     whatsapp: "WhatsApp",
     whatsappMessage: "Hola, quiero saber más del asistente.",
     nav: {
       demo: "Demo",
-      services: "Servicios",
-      processes: "Procesos",
-      howWeWork: "Cómo trabajamos",
-      why: "Por qué AIworks",
-      demos: "Demos",
       pricing: "Precios",
-      faq: "Preguntas",
-      contact: "Contacto",
     },
-    cta: "Hablar por WhatsApp",
   },
   hero: {
     label: "Inicio",
@@ -63,96 +54,6 @@ export const es = {
     trackRecord: "La marca es nueva; la experiencia, no: más de 7 años resolviendo procesos.",
     logTimes: ["10:02", "10:02", "10:02", "10:03"],
   },
-  log: {
-    title: "Registro operativo",
-    label: "Ejemplo de flujo",
-    windowTitle: "aiworks — lead-whatsapp",
-    command: "analizar-lead --canal=whatsapp",
-    lines: [
-      { time: "21:47", kind: "input", label: "entrada", text: "“Hola, ¿tienen el plan para 20 usuarios? Lo necesitamos este mes.”" },
-      { time: "21:47", kind: "ai", label: "ia", text: "Intención: compra. Urgencia: alta, lo pide para este mes." },
-      { time: "21:47", kind: "ai", label: "ia", text: "Cruza con el CRM: cliente nuevo, empresa de 20 personas." },
-      { time: "21:48", kind: "decision", label: "decisión", text: "Responde con el plan y propone una llamada mañana." },
-      { time: "21:48", kind: "review", label: "revisión", text: "Avisa a ventas para que confirme la llamada." },
-      { time: "21:48", kind: "log", label: "registro", text: "Queda anotado con hora y responsable." },
-    ],
-    result: {
-      label: "resultado",
-      items: ["Lead prioritario", "Asignado a ventas", "Respondido en 1 minuto"],
-    },
-    footnote: "Cada decisión queda con hora, con responsable y con registro. Eso es lo que hace que una automatización se pueda auditar en lugar de tener que creerle.",
-  },
-  services: {
-    eyebrow: "Qué construimos",
-    title: { before: "Software a la medida", highlight: "de cómo trabaja su empresa." },
-    subtitle:
-      "Cuatro líneas de trabajo. Todas terminan en software funcionando sobre sus datos, con revisión humana donde importa.",
-    exampleLabel: "Por ejemplo",
-    items: [
-      {
-        icon: "processes",
-        title: "Automatización de procesos",
-        description:
-          "Conciliaciones, cierres de mes, reportes y cobranza que hoy dependen de copiar y pegar entre sistemas.",
-        example: "Conciliación bancaria diaria que deja a una persona solo las partidas que no cuadran.",
-        technologies: ["Python", "n8n", "PostgreSQL"],
-      },
-      {
-        icon: "chatbots",
-        title: "Asistentes y chatbots con IA",
-        description:
-          "Atienden por WhatsApp y en su web con la información real del negocio, pasan a una persona lo que no saben responder y registran cada conversación.",
-        example: "Un asistente que responde precios y disponibilidad fuera de horario y agenda con ventas.",
-        technologies: ["Claude", "OpenAI", "LangChain", "WhatsApp"],
-      },
-      {
-        icon: "documents",
-        title: "Lectura y clasificación de documentos",
-        description:
-          "Facturas, PDF, correos y formularios se leen al llegar y los datos entran una sola vez al sistema.",
-        example: "Facturas de proveedores registradas sin digitar, con revisión de los montos dudosos.",
-        technologies: ["Python", "Claude", "FastAPI"],
-      },
-      {
-        icon: "cloud",
-        title: "Integración y nube",
-        description:
-          "Conectamos lo que ya usa y desplegamos en su propia nube, Azure o AWS, con la infraestructura escrita como código.",
-        example: "Todo el entorno definido en Terraform: reproducible, auditable y en su cuenta.",
-        technologies: ["Azure", "AWS", "Terraform", "Docker", "GitHub Actions"],
-      },
-    ],
-  },
-  processes: {
-    eyebrow: "Procesos que se automatizan",
-    title: { before: "Lo que hoy se hace a mano", highlight: "y no debería." },
-    subtitle:
-      "Si reconoce alguno de estos en su empresa, ya sabe de dónde salen las horas que no aparecen en ningún informe.",
-    itemCta: "Hablar de esto",
-    items: [
-      {
-        number: "01",
-        title: "Conciliación bancaria",
-        today: "Alguien cruza el extracto contra el sistema, línea por línea. El cierre depende de cuántas alcance a revisar antes de que termine el día.",
-        solution:
-          "El sistema lee el extracto, cruza por referencia y monto, y deja en una cola aparte solo las que no cuadran. La persona revisa las excepciones, no las cinco mil filas.",
-      },
-      {
-        number: "02",
-        title: "Cierre de mes y digitación",
-        today: "Los datos llegan en correos, PDF y hojas de cálculo, y alguien los vuelve a escribir en el sistema. Lo que se digita mal se descubre en el cierre siguiente.",
-        solution:
-          "Los documentos se leen al llegar y los datos entran una sola vez. El equipo deja de digitar y pasa a decidir sobre lo que el sistema marcó.",
-      },
-      {
-        number: "03",
-        title: "Atención a clientes fuera de horario",
-        today: "Las consultas se acumulan de noche y el lunes hay cola. Las preguntas son casi siempre las mismas.",
-        solution:
-          "Un asistente responde las consultas repetidas con la información real de su negocio, y pasa a una persona lo que no sabe contestar. No improvisa.",
-      },
-    ],
-  },
   howWeWork: {
     eyebrow: "Cómo trabajamos",
     title: { before: "Tres fases.", highlight: "Sin sorpresas." },
@@ -186,82 +87,6 @@ export const es = {
     stackLabel: "Tecnologías con las que trabajamos",
     pause: "Pausar",
     resume: "Reanudar",
-  },
-  why: {
-    eyebrow: "Por qué AIworks",
-    title: { before: "Sin promesas infladas.", highlight: "Con criterio." },
-    items: [
-      {
-        title: "Más de 7 años resolviendo procesos",
-        description:
-          "La marca es nueva; la experiencia no. Son más de siete años liderando proyectos de software, la mayoría resolviendo exactamente este tipo de problema.",
-      },
-      {
-        title: "IA con orden, no IA a ciegas",
-        description:
-          "Toda decisión automática queda registrada, con su hora, y las que importan pasan por una persona antes de ejecutarse. Usted puede reconstruir por qué el sistema hizo lo que hizo.",
-      },
-      {
-        title: "Del concepto a producción suele tomar semanas",
-        description:
-          "Trabajamos en entregas cortas sobre sus datos reales. No hay una fase de seis meses en la que usted no ve nada.",
-      },
-      {
-        title: "Software que otro puede mantener",
-        description:
-          "Código probado, documentado y suyo. Si mañana decide llevárselo a otro equipo, puede hacerlo.",
-      },
-    ],
-    examples: {
-      title: "Ejemplos de automatización",
-      previous: "Ejemplo anterior",
-      next: "Ejemplo siguiente",
-      todayLabel: "Hoy",
-      withAiLabel: "Con IA",
-      items: [
-        {
-          area: "Ventas",
-          title: "Leads de WhatsApp que llegan de noche",
-          today: "Los mensajes de la noche se contestan al día siguiente, y algunos ya compraron en otro lado.",
-          withAi: "Cada mensaje se clasifica al llegar; los interesados reciben respuesta y pasan a ventas con prioridad.",
-        },
-        {
-          area: "Finanzas",
-          title: "Conciliación bancaria a mano",
-          today: "Una persona cruza el extracto contra el sistema línea por línea, y el cierre espera a que termine.",
-          withAi: "El sistema cruza por referencia y monto; la persona revisa solo las partidas que no cuadran.",
-        },
-        {
-          area: "Documentos",
-          title: "Facturas en PDF que llegan por correo",
-          today: "Cada factura se vuelve a digitar en el sistema, y los errores aparecen en el cierre siguiente.",
-          withAi: "Las facturas se leen al llegar y los datos entran una sola vez, con revisión humana de lo dudoso.",
-        },
-        {
-          area: "Cobranza",
-          title: "Facturas vencidas sin seguimiento",
-          today: "Alguien revisa quién debe y escribe a cada cliente uno por uno, cuando tiene tiempo.",
-          withAi: "El sistema detecta los vencimientos, envía recordatorios y avisa a una persona cuando el cliente responde.",
-        },
-        {
-          area: "Reportes",
-          title: "El reporte semanal de cada lunes",
-          today: "Se juntan varias hojas de cálculo a mano para armar el mismo reporte todas las semanas.",
-          withAi: "El reporte se arma solo con los datos del sistema y llega por correo con lo que cambió.",
-        },
-        {
-          area: "Operaciones",
-          title: "Inventario que no cuadra con el sistema",
-          today: "El stock de la hoja de cálculo no coincide con el sistema y nadie sabe cuál es el real.",
-          withAi: "Ambos se concilian a diario y solo las diferencias llegan a quien tiene que decidir.",
-        },
-      ],
-    },
-  },
-  demos: {
-    eyebrow: "Demos en vivo",
-    title: { before: "Pruébelo", highlight: "usted mismo." },
-    intro: "Elija un sector y converse con un asistente como el que tendría su negocio. Las empresas son de ejemplo.",
   },
   pricing: {
     heading: { before: "Asistente a precio fijo.", highlight: "Lo demás, a medida." },
@@ -331,24 +156,12 @@ export const es = {
     whatsapp: "Hablar por WhatsApp",
     whatsappMessage: "Hola, quiero agendar la llamada de 15 minutos.",
   },
-  floatingWhatsapp: {
-    title: "¿Necesita ayuda?",
-    text: "Escríbanos por WhatsApp",
-    close: "Cerrar aviso",
-  },
   footer: {
-    description: "Consultora de software con inteligencia artificial para PYMEs. Quito, Ecuador.",
-    columns: {
-      services: "Servicios",
-      company: "La empresa",
-      contact: "Contacto",
-      legal: "Legal",
-    },
-    examples: "Ejemplos",
-    location: "Quito, Ecuador",
-    privacy: "Política de privacidad",
-    navigation: "Navegación del pie",
-    copyright: "© 2026 AIworks · RUC 1727406223001 · Quito, Ecuador",
+    navLabel: "Pie",
+    howWeWork: "Cómo trabajamos",
+    faq: "Preguntas",
+    privacy: "Privacidad",
+    copyright: "© 2026 AIworks",
   },
   legal: {
     back: "Volver al inicio",

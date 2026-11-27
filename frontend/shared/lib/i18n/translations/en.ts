@@ -1,22 +1,13 @@
 export const en = {
   header: {
-    logo: "AIworks",
     homeLabel: "AIworks, go to the home page",
     navLabel: "Main",
     whatsapp: "WhatsApp",
     whatsappMessage: "Hi, I would like to know more about the assistant.",
     nav: {
       demo: "Demo",
-      services: "Services",
-      processes: "Processes",
-      howWeWork: "How we work",
-      why: "Why AIworks",
-      demos: "Demos",
       pricing: "Pricing",
-      faq: "Questions",
-      contact: "Contact",
     },
-    cta: "Message us on WhatsApp",
   },
   hero: {
     label: "Home",
@@ -63,96 +54,6 @@ export const en = {
     trackRecord: "The brand is new; the experience is not: over 7 years solving processes.",
     logTimes: ["10:02", "10:02", "10:02", "10:03"],
   },
-  log: {
-    title: "Operations log",
-    label: "Sample flow",
-    windowTitle: "aiworks — whatsapp-lead",
-    command: "analyze-lead --channel=whatsapp",
-    lines: [
-      { time: "21:47", kind: "input", label: "input", text: "“Hi, do you have the plan for 20 users? We need it this month.”" },
-      { time: "21:47", kind: "ai", label: "ai", text: "Intent: purchase. Urgency: high, needed this month." },
-      { time: "21:47", kind: "ai", label: "ai", text: "Checks the CRM: new customer, 20-person company." },
-      { time: "21:48", kind: "decision", label: "decision", text: "Replies with the plan and offers a call tomorrow." },
-      { time: "21:48", kind: "review", label: "review", text: "Alerts sales to confirm the call." },
-      { time: "21:48", kind: "log", label: "log", text: "Recorded with its timestamp and owner." },
-    ],
-    result: {
-      label: "outcome",
-      items: ["Priority lead", "Assigned to sales", "Answered in 1 minute"],
-    },
-    footnote: "Every decision is stored with its timestamp, its owner and its record. That is what makes an automation auditable instead of something you have to take on trust.",
-  },
-  services: {
-    eyebrow: "What we build",
-    title: { before: "Software shaped", highlight: "around how your company works." },
-    subtitle:
-      "Four lines of work. All of them end in software running on your data, with human review where it matters.",
-    exampleLabel: "For example",
-    items: [
-      {
-        icon: "processes",
-        title: "Process automation",
-        description:
-          "Reconciliations, month-end close, reports and collections that today depend on copying and pasting between systems.",
-        example: "A daily bank reconciliation that leaves a person only the entries that do not add up.",
-        technologies: ["Python", "n8n", "PostgreSQL"],
-      },
-      {
-        icon: "chatbots",
-        title: "AI assistants and chatbots",
-        description:
-          "They answer on WhatsApp and on your website using your business's real information, hand to a person what they cannot answer, and log every conversation.",
-        example: "An assistant that answers pricing and availability after hours and books calls with sales.",
-        technologies: ["Claude", "OpenAI", "LangChain", "WhatsApp"],
-      },
-      {
-        icon: "documents",
-        title: "Document reading and classification",
-        description:
-          "Invoices, PDFs, emails and forms are read as they arrive and the data is entered into the system once.",
-        example: "Supplier invoices recorded without typing, with a person reviewing doubtful amounts.",
-        technologies: ["Python", "Claude", "FastAPI"],
-      },
-      {
-        icon: "cloud",
-        title: "Integration and cloud",
-        description:
-          "We connect what you already use and deploy to your own cloud, Azure or AWS, with the infrastructure written as code.",
-        example: "The whole environment defined in Terraform: reproducible, auditable and in your account.",
-        technologies: ["Azure", "AWS", "Terraform", "Docker", "GitHub Actions"],
-      },
-    ],
-  },
-  processes: {
-    eyebrow: "Processes that can be automated",
-    title: { before: "What still gets done by hand", highlight: "and shouldn't." },
-    subtitle:
-      "If you recognise any of these in your company, you already know where the hours that show up in no report are going.",
-    itemCta: "Talk about this",
-    items: [
-      {
-        number: "01",
-        title: "Bank reconciliation",
-        today: "Someone matches the statement against the system, line by line. The close depends on how many lines they get through before the day ends.",
-        solution:
-          "The system reads the statement, matches on reference and amount, and sets aside only the entries that do not add up. A person reviews the exceptions, not the five thousand rows.",
-      },
-      {
-        number: "02",
-        title: "Month-end close and data entry",
-        today: "Data arrives in emails, PDFs and spreadsheets, and someone types it into the system again. Whatever is mistyped surfaces at the next close.",
-        solution:
-          "Documents are read as they arrive and the data is entered once. The team stops typing and starts deciding on what the system flagged.",
-      },
-      {
-        number: "03",
-        title: "Customer questions after hours",
-        today: "Enquiries pile up overnight and Monday starts with a queue. The questions are almost always the same ones.",
-        solution:
-          "An assistant answers the repeat enquiries using your business's real information, and hands anything it cannot answer to a person. It does not improvise.",
-      },
-    ],
-  },
   howWeWork: {
     eyebrow: "How we work",
     title: { before: "Three phases.", highlight: "No surprises." },
@@ -186,82 +87,6 @@ export const en = {
     stackLabel: "Technologies we work with",
     pause: "Pause",
     resume: "Resume",
-  },
-  why: {
-    eyebrow: "Why AIworks",
-    title: { before: "No inflated promises.", highlight: "Just sound judgement." },
-    items: [
-      {
-        title: "Over 7 years solving processes",
-        description:
-          "The brand is new; the experience is not. It is over seven years leading software projects, most of it solving exactly this kind of problem.",
-      },
-      {
-        title: "AI with a paper trail, not AI on blind faith",
-        description:
-          "Every automated decision is recorded with its timestamp, and the ones that matter go through a person before they execute. You can reconstruct why the system did what it did.",
-      },
-      {
-        title: "From concept to production usually takes weeks",
-        description:
-          "We work in short increments on your real data. There is no six-month phase where you see nothing.",
-      },
-      {
-        title: "Software someone else can maintain",
-        description:
-          "Tested, documented code, and it is yours. If you decide tomorrow to hand it to another team, you can.",
-      },
-    ],
-    examples: {
-      title: "Automation examples",
-      previous: "Previous example",
-      next: "Next example",
-      todayLabel: "Today",
-      withAiLabel: "With AI",
-      items: [
-        {
-          area: "Sales",
-          title: "WhatsApp leads that arrive at night",
-          today: "Night-time messages get answered the next day, and some have already bought elsewhere.",
-          withAi: "Every message is classified on arrival; interested leads get a reply and go to sales first.",
-        },
-        {
-          area: "Finance",
-          title: "Bank reconciliation by hand",
-          today: "Someone matches the statement against the system line by line, and the close waits until they finish.",
-          withAi: "The system matches on reference and amount; the person reviews only the entries that do not add up.",
-        },
-        {
-          area: "Documents",
-          title: "PDF invoices arriving by email",
-          today: "Every invoice is typed into the system again, and the mistakes surface at the next close.",
-          withAi: "Invoices are read as they arrive and the data is entered once, with a person reviewing anything doubtful.",
-        },
-        {
-          area: "Collections",
-          title: "Overdue invoices nobody follows up",
-          today: "Someone checks who owes what and writes to each customer one by one, when they find the time.",
-          withAi: "The system spots overdue invoices, sends reminders and alerts a person when the customer replies.",
-        },
-        {
-          area: "Reporting",
-          title: "The Monday weekly report",
-          today: "Several spreadsheets are stitched together by hand to build the same report every week.",
-          withAi: "The report builds itself from the system's data and arrives by email with what changed.",
-        },
-        {
-          area: "Operations",
-          title: "Inventory that does not match the system",
-          today: "Stock in the spreadsheet does not match the system, and nobody knows which one is right.",
-          withAi: "Both are reconciled daily and only the differences reach whoever has to decide.",
-        },
-      ],
-    },
-  },
-  demos: {
-    eyebrow: "Live demos",
-    title: { before: "Try it", highlight: "yourself." },
-    intro: "Pick a sector and talk to an assistant like the one your business would have. The companies are examples.",
   },
   pricing: {
     heading: { before: "Fixed-price assistant.", highlight: "The rest, made to fit." },
@@ -331,24 +156,12 @@ export const en = {
     whatsapp: "Message us on WhatsApp",
     whatsappMessage: "Hi, I'd like to book the 15-minute call.",
   },
-  floatingWhatsapp: {
-    title: "Need a hand?",
-    text: "Message us on WhatsApp",
-    close: "Dismiss",
-  },
   footer: {
-    description: "AI software consultancy for small and mid-sized businesses. Quito, Ecuador.",
-    columns: {
-      services: "Services",
-      company: "Company",
-      contact: "Contact",
-      legal: "Legal",
-    },
-    examples: "Examples",
-    location: "Quito, Ecuador",
-    privacy: "Privacy policy",
-    navigation: "Footer navigation",
-    copyright: "© 2026 AIworks · RUC (tax ID) 1727406223001 · Quito, Ecuador",
+    navLabel: "Footer",
+    howWeWork: "How we work",
+    faq: "Questions",
+    privacy: "Privacy",
+    copyright: "© 2026 AIworks",
   },
   legal: {
     back: "Back to home",

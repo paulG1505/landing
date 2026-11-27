@@ -2,6 +2,7 @@
 
 import { useLanguageStore } from '@/shared/store/useLanguageStore';
 import type { Locale } from '@/shared/lib/i18n/translations';
+import { cn } from '@/shared/lib/utils';
 
 const LANGUAGES: { code: Locale; label: string; name: string }[] = [
   { code: 'es', label: 'ES', name: 'Español' },
@@ -15,26 +16,27 @@ export function LanguageSelector() {
     <div
       role="group"
       aria-label={locale === 'en' ? 'Language' : 'Idioma'}
-      className="flex w-fit rounded-full border border-[var(--c-regla)] font-mono text-[0.8125rem] font-medium"
+      className="flex items-center font-mono text-sm text-[var(--c-media)]"
     >
-      {LANGUAGES.map((lang) => {
+      {LANGUAGES.map((lang, index) => {
         const active = locale === lang.code;
         return (
-          <button
-            key={lang.code}
-            type="button"
-            lang={lang.code}
-            onClick={() => setLocale(lang.code)}
-            aria-pressed={active}
-            aria-label={lang.name}
-            className={
-              active
-                ? 'cursor-pointer rounded-full bg-[var(--c-texto)] px-2.5 py-[7px] leading-none text-[var(--c-fondo)]'
-                : 'cursor-pointer rounded-full px-2.5 py-[7px] leading-none text-[var(--c-media)] transition-colors duration-150 hover:text-[var(--c-texto)]'
-            }
-          >
-            {lang.label}
-          </button>
+          <span key={lang.code} className="flex items-center">
+            {index > 0 && <span aria-hidden="true">·</span>}
+            <button
+              type="button"
+              lang={lang.code}
+              onClick={() => setLocale(lang.code)}
+              aria-pressed={active}
+              aria-label={lang.name}
+              className={cn(
+                'inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center',
+                active ? 'text-[var(--c-texto)]' : 'hover:text-[var(--c-texto)]',
+              )}
+            >
+              {lang.label}
+            </button>
+          </span>
         );
       })}
     </div>
