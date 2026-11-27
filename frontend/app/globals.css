@@ -891,3 +891,39 @@ section[id] {
     display: none;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal]:not([data-visible]) .w {
+    opacity: 0;
+    transform: translateY(32px) scaleY(1.08);
+    transform-origin: 50% 100%;
+    filter: blur(12px);
+  }
+  html.js [data-reveal]:not([data-visible]) .w.w-flat {
+    filter: none;
+  }
+  html.js [data-reveal][data-visible] .w {
+    transition:
+      opacity 0.8s var(--silk),
+      transform 0.8s var(--silk),
+      filter 0.8s var(--silk);
+  }
+  html.js [data-reveal][data-visible] .w2 {
+    transition-delay: 0.08s;
+  }
+  html.js [data-reveal][data-visible] .w3 {
+    transition-delay: 0.22s;
+  }
+  html.js [data-reveal][data-visible] .w4 {
+    transition-delay: 0.34s;
+  }
+  html.js [data-reveal][data-visible] .w5 {
+    transition-delay: 0.46s;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (max-width: 900px) {
+  html.js [data-reveal]:not([data-visible]) .w {
+    transform: translateY(24px) scaleY(1.08);
+    filter: blur(5px);
+  }
+}

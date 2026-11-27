@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslation } from '@/shared/hooks/useTranslation';
+import { useReveal } from '@/shared/hooks/useReveal';
 import { newTabNotice, whatsappTextLink } from '@/shared/lib/whatsapp';
 import { cn } from '@/shared/lib/utils';
 
@@ -10,19 +11,20 @@ export function PainPoints() {
   const copy = t.painPoints;
   const [selected, setSelected] = useState(0);
   const current = copy.options[selected] ?? copy.options[0];
+  const reveal = useReveal<HTMLElement>();
 
   return (
-    <section id="servicios" data-tone="light" className="screen border-t border-regla">
+    <section {...reveal} id="servicios" data-tone="light" className="screen border-t border-regla">
       <div className="screen-wrap flex flex-col gap-[72px]">
         <div className="pain-grid">
           <div className="flex min-w-0 flex-col gap-5">
-            <h2 className="display display-m">{copy.heading}</h2>
-            <p className="display heading-h indent-step min-h-[1.1em] text-marca">
+            <h2 className="display display-m w">{copy.heading}</h2>
+            <p className="display heading-h indent-step w w2 min-h-[1.1em] text-marca">
               <span key={selected} className="swap">
                 {current.verb}…
               </span>
             </p>
-            <div className="indent-step mt-7 flex max-w-[30em] flex-col gap-3.5">
+            <div className="indent-step w w3 mt-7 flex max-w-[30em] flex-col gap-3.5">
               <p className="m-0 text-tinta-media">
                 <span className="mono-label mr-2.5 text-tinta-media">{copy.todayLabel}</span>
                 {current.today}
@@ -33,7 +35,7 @@ export function PainPoints() {
               </p>
             </div>
           </div>
-          <ul aria-label={copy.pickLabel} className="m-0 flex list-none flex-col border-b border-regla p-0">
+          <ul aria-label={copy.pickLabel} className="w w-flat w4 m-0 flex list-none flex-col border-b border-regla p-0">
             {copy.options.map((option, index) => {
               const active = index === selected;
               return (
@@ -57,7 +59,7 @@ export function PainPoints() {
             })}
           </ul>
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-x-10 gap-y-4">
+        <div className="w w5 flex flex-wrap items-center justify-between gap-x-10 gap-y-4">
           <p className="mono-label text-tinta-media">{copy.serviceNames.join(' · ')}</p>
           <a
             href={whatsappTextLink(copy.other.message)}

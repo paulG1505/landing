@@ -1,18 +1,22 @@
 'use client';
 
 import { useTranslation } from '@/shared/hooks/useTranslation';
+import { useReveal } from '@/shared/hooks/useReveal';
 import { newTabNotice, whatsappTextLink } from '@/shared/lib/whatsapp';
 import { cn } from '@/shared/lib/utils';
+
+const PRICE_DELAYS = ['w2', 'w3', 'w4'];
 
 export function Pricing() {
   const { t, locale } = useTranslation();
   const { heading, items, terms, custom, cta, ctaMessage } = t.pricing;
   const lastIndex = items.length - 1;
+  const reveal = useReveal<HTMLElement>();
 
   return (
-    <section id="precios" data-tone="light" className="screen">
+    <section {...reveal} id="precios" data-tone="light" className="screen">
       <div className="screen-wrap flex flex-col gap-[72px]">
-        <h2 className="display heading-h">
+        <h2 className="display heading-h w">
           {heading.before} <span className="text-marca">{heading.highlight}</span>
         </h2>
         <ul className="price-grid m-0 list-none p-0">
@@ -22,7 +26,8 @@ export function Pricing() {
               <li
                 key={item.label}
                 className={cn(
-                  'flex flex-col gap-3 border-t pt-4',
+                  'w w-flat flex flex-col gap-3 border-t pt-4',
+                  PRICE_DELAYS[index],
                   featured ? 'border-marca text-marca' : 'border-tinta',
                 )}
               >
@@ -37,7 +42,7 @@ export function Pricing() {
             );
           })}
         </ul>
-        <div className="flex flex-col gap-7">
+        <div className="w w5 flex flex-col gap-7">
           <p className="mono-label leading-[1.8] text-tinta-media">{terms}</p>
           <div className="flex flex-wrap items-center gap-x-10 gap-y-5 border-t border-regla pt-7">
             <a

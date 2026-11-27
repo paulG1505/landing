@@ -303,7 +303,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 6. Entradas por línea
 
-- [ ] **6.1 Entradas por palabra en las pantallas 2 a 5**
+- [x] **6.1 Entradas por palabra en las pantallas 2 a 5**
   - **Archivos:** `app/globals.css` (reglas `.w`, `.w2`…`.w5` de `design.md` §4 bajo `html.js` y
     `no-preference`, ocultas mientras `[data-reveal]` no tenga `data-visible`); `PainPoints.tsx`,
     `HomeDemo.tsx`, `Pricing.tsx`, `Closing.tsx` (cada sección usa `useReveal` y marca sus bloques con
