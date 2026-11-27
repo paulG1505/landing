@@ -9,6 +9,7 @@ import {
   dawnRadius,
   dawnProfile,
   DAWN_PENDING_CLASS,
+  DAWN_EXPIRED_ATTR,
   dawnPendingScript,
 } from './dawnPlan.ts';
 
@@ -82,9 +83,15 @@ test('modest devices get a shorter circle without ring', () => {
   assert.deepEqual(dawnProfile({ cores: 8, width: 390 }), { circleMs: 950, ring: false, blurPx: 5 });
 });
 
-function runHeadScript(overrides: { pathname?: string; hash?: string; scrollY?: number; reduced?: boolean; seen?: boolean; storageThrows?: boolean } = {}) {
+function runHeadScript(overrides: { pathname?: string; hash?: string; scrollY?: number; reduced?: boolean; seen?: boolean; storageThrows?: boolean; fallbackFires?: boolean } = {}) {
   const classes = new Set<string>();
-  const document = { documentElement: { classList: { add: (c: string) => classes.add(c), remove: (c: string) => classes.delete(c) } } };
+  const attributes = new Map<string, string>();
+  const document = {
+    documentElement: {
+      classList: { add: (c: string) => classes.add(c), remove: (c: string) => classes.delete(c) },
+      setAttribute: (name: string, value: string) => attributes.set(name, value),
+    },
+  };
   const location = { pathname: overrides.pathname ?? '/', hash: overrides.hash ?? '' };
   const window = { scrollY: overrides.scrollY ?? 0 };
   const matchMedia = () => ({ matches: overrides.reduced ?? false });
@@ -94,11 +101,14 @@ function runHeadScript(overrides: { pathname?: string; hash?: string; scrollY?: 
       return overrides.seen ? '1' : null;
     },
   };
-  const setTimeout = () => 0;
+  const setTimeout = (run: () => void) => {
+    if (overrides.fallbackFires) run();
+    return 0;
+  };
   new Function('document', 'location', 'window', 'matchMedia', 'sessionStorage', 'setTimeout', dawnPendingScript())(
     document, location, window, matchMedia, sessionStorage, setTimeout,
   );
-  return classes;
+  return Object.assign(classes, { attributes });
 }
 
 test('the head script marks the night before paint only when the dawn will play', () => {
@@ -113,4 +123,11 @@ test('the head script marks the night before paint only when the dawn will play'
   ]) {
     assert.deepEqual([...runHeadScript(blocked)], ['js'], JSON.stringify(blocked));
   }
+});
+
+test('when the fallback fires the head script marks the dawn as expired', () => {
+  const result = runHeadScript({ fallbackFires: true });
+  assert.equal(result.has(DAWN_PENDING_CLASS), false);
+  assert.equal(result.attributes.get(DAWN_EXPIRED_ATTR), 'expired');
+  assert.equal(runHeadScript().attributes.has(DAWN_EXPIRED_ATTR), false);
 });

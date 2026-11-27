@@ -58,9 +58,11 @@ export function dawnProfile({ cores, width }: { cores: number; width: number }) 
 
 export const DAWN_PENDING_CLASS = 'dawn-pending';
 
+export const DAWN_EXPIRED_ATTR = 'data-dawn';
+
 const PENDING_FALLBACK_MS = 3000;
 
 // Runs inline in <head> before paint, so it repeats shouldPlayDawn in plain ES5 without imports.
 export function dawnPendingScript(): string {
-  return `(function(){var d=document.documentElement;d.classList.add('js');try{if((location.pathname==='/'||location.pathname==='/index.html')&&!location.hash&&!window.scrollY&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&sessionStorage.getItem('${DAWN_STORAGE_KEY}')!=='1'){d.classList.add('${DAWN_PENDING_CLASS}');setTimeout(function(){d.classList.remove('${DAWN_PENDING_CLASS}')},${PENDING_FALLBACK_MS})}}catch(e){}})()`;
+  return `(function(){var d=document.documentElement;d.classList.add('js');try{if((location.pathname==='/'||location.pathname==='/index.html')&&!location.hash&&!window.scrollY&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&sessionStorage.getItem('${DAWN_STORAGE_KEY}')!=='1'){d.classList.add('${DAWN_PENDING_CLASS}');setTimeout(function(){d.classList.remove('${DAWN_PENDING_CLASS}');d.setAttribute('${DAWN_EXPIRED_ATTR}','expired')},${PENDING_FALLBACK_MS})}}catch(e){}})()`;
 }
