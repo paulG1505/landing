@@ -89,6 +89,19 @@ absent " 4.000"  "no 4.000 figure"
 absent "150-200" "no 150-200 range"
 absent "10.000"  "no 10.000 figure"
 
+heading "Requirement: footer without RUC (decision 9)"
+absent_in_html "1727406223001" "the home does not show the RUC"
+grep -qF "1727406223001" "$OUT/privacidad.html" 2>/dev/null \
+  && ok "the RUC stays in /privacidad" || bad "the RUC stays in /privacidad (not found)"
+
+heading "Requirement: no theme switcher (decision 4)"
+absent "aiworks-tema" "no stored theme preference"
+
+heading "Requirement: FAQPage only on /preguntas"
+grep -qF '"FAQPage"' "$OUT/preguntas.html" 2>/dev/null \
+  && ok "/preguntas declares FAQPage" || bad "/preguntas declares FAQPage (not found)"
+absent_in_html "FAQPage" "the home does not declare FAQPage"
+
 heading "Bundle weight"
 if [ -f "$OUT/videos/landing.mp4" ]; then
   bad "the 60 MB video is still in the build"
