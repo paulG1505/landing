@@ -8,6 +8,8 @@ import {
   markSeen,
   dawnRadius,
   dawnProfile,
+  DAWN_PENDING_CLASS,
+  dawnPendingScript,
 } from './dawnPlan.ts';
 
 const clear = { reduced: false, hash: '', scrollY: 0, seen: false };
@@ -78,4 +80,37 @@ test('modest devices get a shorter circle without ring', () => {
   assert.deepEqual(dawnProfile({ cores: 8, width: 1440 }), { circleMs: 1100, ring: true, blurPx: 12 });
   assert.deepEqual(dawnProfile({ cores: 4, width: 1440 }), { circleMs: 950, ring: false, blurPx: 5 });
   assert.deepEqual(dawnProfile({ cores: 8, width: 390 }), { circleMs: 950, ring: false, blurPx: 5 });
+});
+
+function runHeadScript(overrides: { pathname?: string; hash?: string; scrollY?: number; reduced?: boolean; seen?: boolean; storageThrows?: boolean } = {}) {
+  const classes = new Set<string>();
+  const document = { documentElement: { classList: { add: (c: string) => classes.add(c), remove: (c: string) => classes.delete(c) } } };
+  const location = { pathname: overrides.pathname ?? '/', hash: overrides.hash ?? '' };
+  const window = { scrollY: overrides.scrollY ?? 0 };
+  const matchMedia = () => ({ matches: overrides.reduced ?? false });
+  const sessionStorage = {
+    getItem: () => {
+      if (overrides.storageThrows) throw new Error('blocked');
+      return overrides.seen ? '1' : null;
+    },
+  };
+  const setTimeout = () => 0;
+  new Function('document', 'location', 'window', 'matchMedia', 'sessionStorage', 'setTimeout', dawnPendingScript())(
+    document, location, window, matchMedia, sessionStorage, setTimeout,
+  );
+  return classes;
+}
+
+test('the head script marks the night before paint only when the dawn will play', () => {
+  assert.deepEqual([...runHeadScript()].sort(), [DAWN_PENDING_CLASS, 'js'].sort());
+  for (const blocked of [
+    { pathname: '/precios' },
+    { hash: '#demo' },
+    { scrollY: 10 },
+    { reduced: true },
+    { seen: true },
+    { storageThrows: true },
+  ]) {
+    assert.deepEqual([...runHeadScript(blocked)], ['js'], JSON.stringify(blocked));
+  }
 });

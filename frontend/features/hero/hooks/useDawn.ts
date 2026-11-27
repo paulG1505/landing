@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { triggerFlash } from '@/shared/components/ui/flash/flashBus';
-import { DAWN_TIMELINE, dawnProfile, dawnRadius, markSeen, readSeen, shouldPlayDawn } from '../lib/dawnPlan';
+import { DAWN_PENDING_CLASS, DAWN_TIMELINE, dawnProfile, dawnRadius, markSeen, readSeen, shouldPlayDawn } from '../lib/dawnPlan';
 import { scrambleFrame } from '../lib/scramble';
 
 const SILK = 'cubic-bezier(0.6, 0, 0.2, 1)';
@@ -145,6 +145,7 @@ export function useDawn(target: ScrambleTarget) {
 
   // Layout effect so the night covers the day before the first client paint.
   useLayoutEffect(() => {
+    document.documentElement.classList.remove(DAWN_PENDING_CLASS);
     const storage = sessionStore();
     const shouldPlay = shouldPlayDawn({
       reduced: prefersReducedMotion(),

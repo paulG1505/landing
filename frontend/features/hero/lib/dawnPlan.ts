@@ -55,3 +55,12 @@ export function dawnProfile({ cores, width }: { cores: number; width: number }) 
     ? { circleMs: 950, ring: false, blurPx: 5 }
     : { circleMs: 1100, ring: true, blurPx: 12 };
 }
+
+export const DAWN_PENDING_CLASS = 'dawn-pending';
+
+const PENDING_FALLBACK_MS = 3000;
+
+// Runs inline in <head> before paint, so it repeats shouldPlayDawn in plain ES5 without imports.
+export function dawnPendingScript(): string {
+  return `(function(){var d=document.documentElement;d.classList.add('js');try{if((location.pathname==='/'||location.pathname==='/index.html')&&!location.hash&&!window.scrollY&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&sessionStorage.getItem('${DAWN_STORAGE_KEY}')!=='1'){d.classList.add('${DAWN_PENDING_CLASS}');setTimeout(function(){d.classList.remove('${DAWN_PENDING_CLASS}')},${PENDING_FALLBACK_MS})}}catch(e){}})()`;
+}

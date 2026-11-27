@@ -335,6 +335,12 @@ section[id] {
   z-index: 2;
   background: var(--papel);
 }
+html.dawn-pending .hero-stage {
+  background: var(--noche);
+}
+html.dawn-pending .hero-day {
+  clip-path: circle(0px at var(--ox) var(--oy));
+}
 .dawn-night {
   position: absolute;
   inset: 0;
