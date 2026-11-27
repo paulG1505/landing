@@ -2,28 +2,13 @@ import dynamic from 'next/dynamic';
 import { Hero } from '@/features/hero/components/Hero';
 import { ScrollToAnchor } from '@/shared/components/providers/ScrollToAnchor';
 
-const Services = dynamic(
-  () => import('@/features/services/components/Services').then((mod) => ({ default: mod.Services })),
+const PainPoints = dynamic(
+  () => import('@/features/pain-points/components/PainPoints').then((mod) => ({ default: mod.PainPoints })),
   { loading: () => null }
 );
 
-const Processes = dynamic(
-  () => import('@/features/processes/components/Processes').then((mod) => ({ default: mod.Processes })),
-  { loading: () => null }
-);
-
-const HowWeWork = dynamic(
-  () => import('@/features/how-we-work/components/HowWeWork').then((mod) => ({ default: mod.HowWeWork })),
-  { loading: () => null }
-);
-
-const Why = dynamic(
-  () => import('@/features/why/components/Why').then((mod) => ({ default: mod.Why })),
-  { loading: () => null }
-);
-
-const DemosSection = dynamic(
-  () => import('@/features/demo/components/DemosSection').then((mod) => ({ default: mod.DemosSection })),
+const HomeDemo = dynamic(
+  () => import('@/features/demo/components/HomeDemo').then((mod) => ({ default: mod.HomeDemo })),
   { loading: () => null }
 );
 
@@ -32,13 +17,8 @@ const Pricing = dynamic(
   { loading: () => null }
 );
 
-const Faq = dynamic(
-  () => import('@/features/faq/components/Faq').then((mod) => ({ default: mod.Faq })),
-  { loading: () => null }
-);
-
-const FinalCta = dynamic(
-  () => import('@/features/final-cta/components/FinalCta').then((mod) => ({ default: mod.FinalCta })),
+const Closing = dynamic(
+  () => import('@/features/final-cta/components/Closing').then((mod) => ({ default: mod.Closing })),
   { loading: () => null }
 );
 
@@ -47,14 +27,10 @@ export default function Home() {
     <>
       <ScrollToAnchor />
       <Hero />
-      <Services />
-      <Processes />
-      <HowWeWork />
-      <Why />
-      <DemosSection />
+      <PainPoints />
+      <HomeDemo />
       <Pricing />
-      <Faq />
-      <FinalCta />
+      <Closing />
     </>
   );
 }

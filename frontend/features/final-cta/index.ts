@@ -1,1 +1,1 @@
-export { FinalCta } from './components/FinalCta';
+export { Closing } from './components/Closing';

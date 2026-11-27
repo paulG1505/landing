@@ -25,7 +25,7 @@ export function PrivacyPolicy() {
   };
 
   return (
-    <article className="pb-24 pt-32 lg:pb-40 lg:pt-44">
+    <article className="pb-24 pt-16 lg:pb-40 lg:pt-24">
       <Container>
         <div className="flex max-w-[760px] flex-col gap-6">
           <Link href="/" className="group inline-flex w-fit items-center gap-2 text-[0.9375rem] font-medium text-tinta-media hover:text-tinta">

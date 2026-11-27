@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
-import { Header } from "@/shared/components/layout/Header";
+import { HeaderOutsideHome } from "@/shared/components/layout/SiteHeader";
 import { Footer } from "@/shared/components/layout/Footer";
 import { ChatLauncher } from "@/shared/components/ui/chat/ChatLauncher";
+import { ClickFlash } from "@/shared/components/ui/flash/ClickFlash";
 import { StructuredData } from "@/shared/components/seo/StructuredData";
 import { StoreRehydrate } from "@/shared/components/providers/StoreRehydrate";
 import { MotionProvider } from "@/shared/components/providers/MotionProvider";
 import { SITE_URL } from "@/shared/constants/site";
-import { THEME_INIT_SCRIPT } from "@/shared/lib/theme";
+import { dawnPendingScript } from "@/features/hero/lib/dawnPlan";
 import "./globals.css";
 
 const displayFont = Bricolage_Grotesque({
   subsets: ["latin"],
-  axes: ["opsz"],
+  axes: ["opsz", "wdth"],
   variable: "--face-display",
   display: "swap",
 });
@@ -92,7 +93,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning className={`${displayFont.variable} ${sans.variable} ${mono.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: dawnPendingScript() }} />
         <link rel="dns-prefetch" href="https://wa.me" />
       </head>
       <body className="antialiased font-sans">
@@ -105,10 +106,11 @@ export default function RootLayout({
         <StoreRehydrate />
         <StructuredData />
         <MotionProvider>
-          <Header />
+          <HeaderOutsideHome />
           <main id="main">{children}</main>
           <Footer />
           <ChatLauncher />
+          <ClickFlash />
         </MotionProvider>
       </body>
     </html>

@@ -54,7 +54,7 @@ export function TechnologyTicker({ label, pause, resume }: TechnologyTickerProps
             role="img"
             viewBox="0 0 24 24"
             fillRule={tech.evenodd ? 'evenodd' : undefined}
-            className="size-8 fill-current text-hueso opacity-90 transition-opacity duration-150 hover:opacity-100 sm:size-9"
+            className="size-8 fill-current text-tinta opacity-80 transition-opacity duration-150 hover:opacity-100 sm:size-9"
           >
             <title>{tech.name}</title>
             {tech.paths.map((d) => (
@@ -69,13 +69,13 @@ export function TechnologyTicker({ label, pause, resume }: TechnologyTickerProps
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center justify-between gap-4">
-        <p className="eyebrow">{label}</p>
+        <p className="mono-label text-tinta-media">{label}</p>
         {!reduced && (
           <button
             type="button"
             onClick={() => setPausedByButton((p) => !p)}
             aria-pressed={pausedByButton}
-            className="cursor-pointer rounded-full border border-[var(--regla-noche)] px-3 py-1.5 font-mono text-xs text-hueso-medio transition-colors duration-150 hover:border-hueso-medio hover:text-hueso"
+            className="inline-flex min-h-11 cursor-pointer items-center rounded-full border border-regla px-4 font-mono text-xs text-tinta-media transition-colors duration-150 hover:border-tinta-media hover:text-tinta"
           >
             {pausedByButton ? resume : pause}
           </button>

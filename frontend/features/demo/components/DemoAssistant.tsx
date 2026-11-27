@@ -93,7 +93,7 @@ export function DemoAssistant() {
   const demoOptions: DemoConversationOptions = { maxChars: DEMO_MAX_CHARS, bookingHref, onProgress: handleProgress };
 
   return (
-    <div className={isConversation ? 'pt-[4.25rem] lg:pb-32 lg:pt-36' : 'pb-24 pt-28 lg:pb-32 lg:pt-36'}>
+    <div className={isConversation ? 'lg:pb-32 lg:pt-16' : 'pb-24 pt-12 lg:pb-32 lg:pt-16'}>
       {view.phase === 'loading' && (
         <Container>
           <p role="status" className="eyebrow">
@@ -126,7 +126,7 @@ export function DemoAssistant() {
               <DemoContextPanel heading={heading} bookingHref={bookingHref} locale={locale} />
             </aside>
 
-            <div className="-mx-5 flex h-[calc(100dvh-4.25rem)] flex-col sm:-mx-8 lg:mx-0 lg:h-[min(46rem,calc(100dvh-11rem))]">
+            <div className="-mx-5 flex h-[calc(100dvh-var(--header-h))] flex-col sm:-mx-8 lg:mx-0 lg:h-[min(46rem,calc(100dvh-11rem))]">
               <div className="lg:hidden">
                 <DemoCompactHeader heading={heading} locale={locale} />
               </div>

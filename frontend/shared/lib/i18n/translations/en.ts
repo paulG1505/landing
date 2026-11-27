@@ -1,121 +1,111 @@
 export const en = {
   header: {
-    logo: "AIworks",
+    homeLabel: "AIworks, go to the home page",
+    navLabel: "Main",
+    whatsapp: "WhatsApp",
+    whatsappMessage: "Hi, I would like to know more about the assistant.",
     nav: {
-      services: "Services",
-      processes: "Processes",
-      howWeWork: "How we work",
-      why: "Why AIworks",
-      demos: "Demos",
+      demo: "Demo",
       pricing: "Pricing",
-      faq: "Questions",
-      contact: "Contact",
     },
-    cta: "Message us on WhatsApp",
   },
   hero: {
-    category: { before: "", highlight: "AI-powered", after: " software." },
-    benefit: "Built for the work your team still does by hand.",
-    subtitle:
-      "We are a consultancy: we build the software that does that work on its own, and we leave every decision it makes in plain view.",
-    trackRecord: "Over 7 years solving processes.",
-    cta: {
-      primary: "Try our assistant",
-      whatsapp: "Message us on WhatsApp",
-      demo: "See a live demo",
+    label: "Home",
+    lineA: "The work your team does by hand,",
+    lineB: "done for you.",
+    lineB1: "done",
+    lineB2: "for you.",
+    lede: "A WhatsApp assistant that answers your customers and logs every decision.",
+    cta: "Try the assistant",
+    replay: "Watch the sunrise again",
+    sampleLabel: "Sample conversation",
+    chat: {
+      client: "Hi, do you deliver to Cumbayá today?",
+      assistant: "Yes, until 6 pm. Shall I hold the order for you?",
+      time: "21:47",
     },
   },
-  log: {
-    title: "Operations log",
-    label: "Sample flow",
-    windowTitle: "aiworks — whatsapp-lead",
-    command: "analyze-lead --channel=whatsapp",
-    lines: [
-      { time: "21:47", kind: "input", label: "input", text: "“Hi, do you have the plan for 20 users? We need it this month.”" },
-      { time: "21:47", kind: "ai", label: "ai", text: "Intent: purchase. Urgency: high, needed this month." },
-      { time: "21:47", kind: "ai", label: "ai", text: "Checks the CRM: new customer, 20-person company." },
-      { time: "21:48", kind: "decision", label: "decision", text: "Replies with the plan and offers a call tomorrow." },
-      { time: "21:48", kind: "review", label: "review", text: "Alerts sales to confirm the call." },
-      { time: "21:48", kind: "log", label: "log", text: "Recorded with its timestamp and owner." },
+  painPoints: {
+    heading: "I want to stop",
+    todayLabel: "Today",
+    withLabel: "With AIworks",
+    pickLabel: "Choose what you want to stop doing",
+    options: [
+      { verb: "answering WhatsApp late", today: "Messages that arrive at night get answered the next day.", withAi: "They are answered on arrival and go to sales with priority." },
+      { verb: "reconciling the bank by hand", today: "Someone checks the statement line by line.", withAi: "The system matches everything; you review only what does not add up." },
+      { verb: "retyping PDF invoices", today: "Every invoice is typed again. Mistakes show up at month end.", withAi: "They are read on arrival; a person reviews only what is unclear." },
+      { verb: "chasing overdue invoices", today: "Someone writes to each customer, one by one, when they can.", withAi: "The system sends the payment reminder; a person handles the replies." },
+      { verb: "guessing the real inventory", today: "The spreadsheet and the system say different things.", withAi: "They are reconciled daily; you see only the differences." },
     ],
-    result: {
-      label: "outcome",
-      items: ["Priority lead", "Assigned to sales", "Answered in 1 minute"],
+    serviceNames: ["Automation", "AI assistants", "Document reading", "Integration"],
+    other: { label: "Another process? Tell us", message: "Hi, I would like to tell you about a process." },
+  },
+  homeDemo: {
+    headingA: "AI with order,",
+    headingB: "not AI in the dark.",
+    pickLabel: "Pick a sample business",
+    logTitle: "What gets recorded",
+    askLabel: "Now you ask it",
+    placeholder: "Write as if you were a customer of {name}",
+    send: "Send question",
+    exampleNote: "{name} · sample company",
+    allDemos: "see all demos",
+    trust: "A person reviews anything sensitive.",
+    trackRecord: "The brand is new; the experience is not: over 7 years solving processes.",
+    logTimes: ["10:02", "10:02", "10:02", "10:03"],
+    sectors: {
+      comercio: {
+        label: "Retail",
+        question: "Do you have 5 kg bags of rice, and can you deliver today?",
+        answer: "Yes, we do. We deliver today from 4 p.m. What is the address?",
+        log: [
+          { label: "input", text: "Asks about stock and delivery.", kind: "entry" as const },
+          { label: "ai", text: "Checks inventory: in stock.", kind: "ai" as const },
+          { label: "decision", text: "Offers delivery today.", kind: "ai" as const },
+          { label: "record", text: "Order open, address missing.", kind: "entry" as const },
+        ],
+      },
+      salud: {
+        label: "Health",
+        question: "Is there a general medicine appointment tomorrow?",
+        answer: "Yes: at 9:30 or at 11:00. Which do you prefer?",
+        log: [
+          { label: "input", text: "Asks for a general medicine appointment.", kind: "entry" as const },
+          { label: "ai", text: "Checks tomorrow's schedule.", kind: "ai" as const },
+          { label: "decision", text: "Offers two open times.", kind: "ai" as const },
+          { label: "review", text: "Front desk confirms the appointment.", kind: "human" as const },
+        ],
+      },
+      finanzas: {
+        label: "Finance",
+        question: "What do I need to open a savings account?",
+        answer: "Your ID and a utility bill. Shall I book you at a branch?",
+        log: [
+          { label: "input", text: "Asks how to open an account.", kind: "entry" as const },
+          { label: "ai", text: "Answers with the requirements.", kind: "ai" as const },
+          { label: "decision", text: "Offers a branch appointment.", kind: "ai" as const },
+          { label: "record", text: "Prospective member noted.", kind: "entry" as const },
+        ],
+      },
+      logistica: {
+        label: "Logistics",
+        question: "How much does it cost to ship a box to Cuenca?",
+        answer: "It depends on the weight. How many kilos does the box weigh?",
+        log: [
+          { label: "input", text: "Asks for a quote to Cuenca.", kind: "entry" as const },
+          { label: "ai", text: "Needs the weight to quote.", kind: "ai" as const },
+          { label: "decision", text: "Asks before giving a price.", kind: "ai" as const },
+          { label: "record", text: "Quote in progress.", kind: "entry" as const },
+        ],
+      },
     },
-    footnote: "Every decision is stored with its timestamp, its owner and its record. That is what makes an automation auditable instead of something you have to take on trust.",
-  },
-  services: {
-    eyebrow: "What we build",
-    title: { before: "Software shaped", highlight: "around how your company works." },
-    subtitle:
-      "Four lines of work. All of them end in software running on your data, with human review where it matters.",
-    exampleLabel: "For example",
-    items: [
-      {
-        icon: "processes",
-        title: "Process automation",
-        description:
-          "Reconciliations, month-end close, reports and collections that today depend on copying and pasting between systems.",
-        example: "A daily bank reconciliation that leaves a person only the entries that do not add up.",
-        technologies: ["Python", "n8n", "PostgreSQL"],
-      },
-      {
-        icon: "chatbots",
-        title: "AI assistants and chatbots",
-        description:
-          "They answer on WhatsApp and on your website using your business's real information, hand to a person what they cannot answer, and log every conversation.",
-        example: "An assistant that answers pricing and availability after hours and books calls with sales.",
-        technologies: ["Claude", "OpenAI", "LangChain", "WhatsApp"],
-      },
-      {
-        icon: "documents",
-        title: "Document reading and classification",
-        description:
-          "Invoices, PDFs, emails and forms are read as they arrive and the data is entered into the system once.",
-        example: "Supplier invoices recorded without typing, with a person reviewing doubtful amounts.",
-        technologies: ["Python", "Claude", "FastAPI"],
-      },
-      {
-        icon: "cloud",
-        title: "Integration and cloud",
-        description:
-          "We connect what you already use and deploy to your own cloud, Azure or AWS, with the infrastructure written as code.",
-        example: "The whole environment defined in Terraform: reproducible, auditable and in your account.",
-        technologies: ["Azure", "AWS", "Terraform", "Docker", "GitHub Actions"],
-      },
-    ],
-  },
-  processes: {
-    eyebrow: "Processes that can be automated",
-    title: { before: "What still gets done by hand", highlight: "and shouldn't." },
-    subtitle:
-      "If you recognise any of these in your company, you already know where the hours that show up in no report are going.",
-    itemCta: "Talk about this",
-    items: [
-      {
-        number: "01",
-        title: "Bank reconciliation",
-        today: "Someone matches the statement against the system, line by line. The close depends on how many lines they get through before the day ends.",
-        solution:
-          "The system reads the statement, matches on reference and amount, and sets aside only the entries that do not add up. A person reviews the exceptions, not the five thousand rows.",
-      },
-      {
-        number: "02",
-        title: "Month-end close and data entry",
-        today: "Data arrives in emails, PDFs and spreadsheets, and someone types it into the system again. Whatever is mistyped surfaces at the next close.",
-        solution:
-          "Documents are read as they arrive and the data is entered once. The team stops typing and starts deciding on what the system flagged.",
-      },
-      {
-        number: "03",
-        title: "Customer questions after hours",
-        today: "Enquiries pile up overnight and Monday starts with a queue. The questions are almost always the same ones.",
-        solution:
-          "An assistant answers the repeat enquiries using your business's real information, and hands anything it cannot answer to a person. It does not improvise.",
-      },
-    ],
   },
   howWeWork: {
+    page: {
+      title: "How we work",
+      description:
+        "Three phases, each ending with something concrete you receive: discovery, architecture and build, and going live.",
+    },
     eyebrow: "How we work",
     title: { before: "Three phases.", highlight: "No surprises." },
     phaseLabel: "Phase",
@@ -149,107 +139,33 @@ export const en = {
     pause: "Pause",
     resume: "Resume",
   },
-  why: {
-    eyebrow: "Why AIworks",
-    title: { before: "No inflated promises.", highlight: "Just sound judgement." },
-    items: [
-      {
-        title: "Over 7 years solving processes",
-        description:
-          "The brand is new; the experience is not. It is over seven years leading software projects, most of it solving exactly this kind of problem.",
-      },
-      {
-        title: "AI with a paper trail, not AI on blind faith",
-        description:
-          "Every automated decision is recorded with its timestamp, and the ones that matter go through a person before they execute. You can reconstruct why the system did what it did.",
-      },
-      {
-        title: "From concept to production usually takes weeks",
-        description:
-          "We work in short increments on your real data. There is no six-month phase where you see nothing.",
-      },
-      {
-        title: "Software someone else can maintain",
-        description:
-          "Tested, documented code, and it is yours. If you decide tomorrow to hand it to another team, you can.",
-      },
-    ],
-    examples: {
-      title: "Automation examples",
-      previous: "Previous example",
-      next: "Next example",
-      todayLabel: "Today",
-      withAiLabel: "With AI",
-      items: [
-        {
-          area: "Sales",
-          title: "WhatsApp leads that arrive at night",
-          today: "Night-time messages get answered the next day, and some have already bought elsewhere.",
-          withAi: "Every message is classified on arrival; interested leads get a reply and go to sales first.",
-        },
-        {
-          area: "Finance",
-          title: "Bank reconciliation by hand",
-          today: "Someone matches the statement against the system line by line, and the close waits until they finish.",
-          withAi: "The system matches on reference and amount; the person reviews only the entries that do not add up.",
-        },
-        {
-          area: "Documents",
-          title: "PDF invoices arriving by email",
-          today: "Every invoice is typed into the system again, and the mistakes surface at the next close.",
-          withAi: "Invoices are read as they arrive and the data is entered once, with a person reviewing anything doubtful.",
-        },
-        {
-          area: "Collections",
-          title: "Overdue invoices nobody follows up",
-          today: "Someone checks who owes what and writes to each customer one by one, when they find the time.",
-          withAi: "The system spots overdue invoices, sends reminders and alerts a person when the customer replies.",
-        },
-        {
-          area: "Reporting",
-          title: "The Monday weekly report",
-          today: "Several spreadsheets are stitched together by hand to build the same report every week.",
-          withAi: "The report builds itself from the system's data and arrives by email with what changed.",
-        },
-        {
-          area: "Operations",
-          title: "Inventory that does not match the system",
-          today: "Stock in the spreadsheet does not match the system, and nobody knows which one is right.",
-          withAi: "Both are reconciled daily and only the differences reach whoever has to decide.",
-        },
-      ],
-    },
-  },
-  demos: {
-    eyebrow: "Live demos",
-    title: { before: "Try it", highlight: "yourself." },
-    intro: "Pick a sector and talk to an assistant like the one your business would have. The companies are examples.",
-  },
   pricing: {
-    eyebrow: "Pricing",
-    title: { before: "A fixed price for the assistant.", highlight: "Everything else, built to fit." },
-    intro: "One-time setup and a monthly plan. A custom system is quoted for your process.",
+    heading: { before: "Fixed-price assistant.", highlight: "The rest, made to fit." },
     items: [
       {
-        name: "Setup",
+        label: "Setup · one-time",
+        figure: "169",
         amount: "USD 169 + VAT",
-        detail: "Founder price for the first 10 companies. Afterwards, USD 600 + VAT. One-time payment; ready in 15 business days.",
+        line: "Founder price, first 10 companies. Then USD 600. Ready in 15 business days.",
       },
       {
-        name: "Basic plan",
+        label: "Basic plan · monthly",
+        figure: "49",
         amount: "USD 49 + VAT per month",
-        detail: "WhatsApp only, up to 250 conversations a month. Includes Meta's messages.",
+        line: "WhatsApp only. 250 conversations.",
       },
       {
-        name: "Growth plan",
+        label: "Growth plan · monthly",
+        figure: "89",
         amount: "USD 89 + VAT per month",
-        detail: "WhatsApp up to 750 conversations a month, plus the chat on your website. Includes Meta's messages.",
+        line: "WhatsApp, 750 conversations, plus the chat on your website.",
       },
     ],
+    terms: "+ VAT · Meta's messages included · 3-month minimum · Go over and you only pay what Meta charges",
     custom: {
-      name: "Custom system",
+      lead: "Something custom?",
       amount: "Quoted for your process",
-      detail: "In 2 business days we show you a working prototype of your own process, a first step with a cost that is credited to the project if you sign within 30 days. The full system usually takes about 45 days.",
+      detail: "Prototype in 2 business days.",
       cta: "Let's talk about your process",
       message: "Hi, I'd like to see a prototype of a custom system for my process.",
     },
@@ -258,6 +174,11 @@ export const en = {
     ctaMessage: "Hi, I'd like the WhatsApp assistant for my business.",
   },
   faq: {
+    page: {
+      title: "Frequently asked questions",
+      description:
+        "What it costs, how long it takes, what happens if the AI gets it wrong and what happens to your company's data.",
+    },
     eyebrow: "Frequently asked questions",
     title: { before: "What people", highlight: "usually ask us." },
     items: [
@@ -284,37 +205,25 @@ export const en = {
     ],
   },
   cta: {
-    eyebrow: "Contact",
-    title: { before: "Start by finding out", highlight: "what is costing you most." },
-    description:
-      "In 15 minutes we look at which process costs you the most and whether to build, automate or add AI. The call is free.",
+    titleA: "What is costing",
+    titleB: "you the",
+    highlight: "most?",
+    description: "15 minutes, free of charge.",
     whatsapp: "Message us on WhatsApp",
-    emailLabel: "or email us at",
-  },
-  floatingWhatsapp: {
-    title: "Need a hand?",
-    text: "Message us on WhatsApp",
-    close: "Dismiss",
+    whatsappMessage: "Hi, I'd like to book the 15-minute call.",
   },
   footer: {
-    description: "AI software consultancy for small and mid-sized businesses. Quito, Ecuador.",
-    columns: {
-      services: "Services",
-      company: "Company",
-      contact: "Contact",
-      legal: "Legal",
-    },
-    examples: "Examples",
-    location: "Quito, Ecuador",
-    privacy: "Privacy policy",
-    navigation: "Footer navigation",
-    copyright: "© 2026 AIworks · RUC (tax ID) 1727406223001 · Quito, Ecuador",
+    navLabel: "Footer",
+    howWeWork: "How we work",
+    faq: "Questions",
+    privacy: "Privacy",
+    copyright: "© 2026 AIworks",
   },
   legal: {
     back: "Back to home",
     privacy: {
       title: "Privacy policy",
-      updated: "Last updated: November 25, 2026",
+      updated: "Last updated: November 27, 2026",
       intro:
         "This policy explains which personal data AIworks receives through this website, what it is used for, and how you can exercise your rights under Ecuador's Organic Law on Personal Data Protection (LOPDP).",
       sections: [
@@ -329,7 +238,7 @@ export const en = {
           paragraphs: [
             "This website has a chat assistant. If you use it, we keep the conversation for 30 days to improve the answers and then delete it. We do not store your IP address in plain form: only a fingerprint that changes every day and is used to limit abuse.",
             "If you ask for a call, the company and job title you give us go into our sales records. Your phone number only reaches us if you message us on WhatsApp. By email we receive what you choose to send us: your address and the content of your message.",
-            "The website uses no tracking cookies or analytics tools. Your browser stores two local preferences — language and light or dark mode — and, while the tab stays open, a chat session identifier. None of it can identify you.",
+            "The website uses no tracking cookies or analytics tools. Your browser stores the language you chose and, while the tab stays open, a chat session identifier, whether you already closed the assistant notice and whether you already saw the opening animation. None of it can identify you.",
           ],
         },
         {
