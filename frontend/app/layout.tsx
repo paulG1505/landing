@@ -7,7 +7,6 @@ import { StructuredData } from "@/shared/components/seo/StructuredData";
 import { StoreRehydrate } from "@/shared/components/providers/StoreRehydrate";
 import { MotionProvider } from "@/shared/components/providers/MotionProvider";
 import { SITE_URL } from "@/shared/constants/site";
-import { THEME_INIT_SCRIPT } from "@/shared/lib/theme";
 import "./globals.css";
 
 const displayFont = Bricolage_Grotesque({
@@ -92,7 +91,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning className={`${displayFont.variable} ${sans.variable} ${mono.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <link rel="dns-prefetch" href="https://wa.me" />
       </head>
       <body className="antialiased font-sans">

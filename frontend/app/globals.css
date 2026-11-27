@@ -64,45 +64,6 @@
   color-scheme: light;
 }
 
-html[data-theme="dark"] {
-  --papel: #121110;
-  --arena: #1A1916;
-  --arena-hover: #221F1B;
-  --tinta: #EEE9E0;
-  --tinta-media: #A7A197;
-  --regla: #2E2B27;
-  --regla-arena: #34302B;
-  --marca: #5CC3CC;
-  --boton: #5CC3CC;
-  --boton-hover: #86D6DC;
-  --sobre-boton: #0E1B1D;
-  --noche: #221F1C;
-  --regla-noche: #36322D;
-  --pista-noche: #403B35;
-  --term-anillo: rgb(255 255 255 / 0.1);
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme]) {
-    --papel: #121110;
-    --arena: #1A1916;
-    --arena-hover: #221F1B;
-    --tinta: #EEE9E0;
-    --tinta-media: #A7A197;
-    --regla: #2E2B27;
-    --regla-arena: #34302B;
-    --marca: #5CC3CC;
-    --boton: #5CC3CC;
-    --boton-hover: #86D6DC;
-    --sobre-boton: #0E1B1D;
-    --noche: #221F1C;
-    --regla-noche: #36322D;
-    --pista-noche: #403B35;
-    --term-anillo: rgb(255 255 255 / 0.1);
-    color-scheme: dark;
-  }
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -137,16 +98,6 @@ html[data-theme="dark"] {
 }
 .tone-night :where(a, button, input, [tabindex]):focus-visible {
   outline-color: var(--marca-clara);
-}
-
-.dark-band {
-  --c-fondo: var(--noche);
-  --c-texto: var(--hueso);
-  --c-media: var(--hueso-medio);
-  --c-regla: var(--regla-noche);
-  --c-clave: var(--marca-clara);
-  background: var(--c-fondo);
-  color: var(--c-texto);
 }
 
 @layer base {
@@ -302,14 +253,6 @@ section[id] {
 .action-primary:hover {
   background: var(--boton-hover);
 }
-.dark-band .action-primary {
-  background: var(--marca-clara);
-  color: #0E1B1D;
-}
-.dark-band .action-primary:hover {
-  background: #86D6DC;
-}
-
 .action-outline {
   padding: 0.6875rem 1.125rem;
   font-size: 0.9375rem;
