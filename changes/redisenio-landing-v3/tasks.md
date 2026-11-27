@@ -453,7 +453,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     CLAUDE.md` → nada.
   - **Terminado cuando:** las dos guías no nombran nada que ya no exista.
 
-- [ ] **9.3 Smoke test completo (paso 5 de la tarjeta)**
+- [x] **9.3 Smoke test completo (paso 5 de la tarjeta)**
   - **Archivos:** ninguno (si algo falla, se corrige en la tarea a la que pertenece).
   - **Pasos:**
     1. `cd frontend && npm ci && npm test && npm run lint && npm run build` → todo verde, y
