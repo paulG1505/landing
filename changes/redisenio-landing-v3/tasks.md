@@ -172,7 +172,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     `npm test` (el test de precios lee `t.cta.description`) → verde.
   - **Terminado cuando:** el botón abre WhatsApp con el mensaje de agendar la llamada de 15 minutos.
 
-- [ ] **2.8 Pie de una fila sin RUC (decisión 9)**
+- [x] **2.8 Pie de una fila sin RUC (decisión 9)**
   - **Archivos:** `shared/components/layout/Footer.tsx` (reescrito); `es.ts`/`en.ts` (`footer`:
     `navLabel`, `howWeWork`, `faq`, `privacy`, `copyright` = «© 2026 AIworks» / «© 2026 AIworks»).
   - **Consume:** 1.3. **Produce:** `<footer data-tone="dark" class="tone-night">` con borde superior
@@ -184,7 +184,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** el pie cabe en una fila a 1440 px y se apila sin desbordar a 320 px; ES · EN
     cambia el idioma de toda la página.
 
-- [ ] **2.9 Componer la home y retirar lo viejo**
+- [x] **2.9 Componer la home y retirar lo viejo**
   - **Archivos:** `app/page.tsx`; `shared/components/seo/StructuredData.tsx` (el `OfferCatalog` usa
     `es.painPoints.serviceNames` como nombres, sin descripción, más el asistente de USD 169);
     `es.ts`/`en.ts` (borrar `services`, `processes`, `why`, `demos`, `log`, `floatingWhatsapp`).
@@ -198,7 +198,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     errores nuevos. `grep -rn "t\.services\|t\.why\|t\.processes\|t\.demos" features shared app` → nada.
   - **Terminado cuando:** la home tiene 5 pantallas + pie, y `npm test`, lint y build están verdes.
 
-- [ ] **2.10 Anclas viejas redirigidas**
+- [x] **2.10 Anclas viejas redirigidas**
   - **Archivos:** nuevo `shared/lib/anchorAliases.ts` y `shared/lib/anchorAliases.test.ts`;
     `shared/components/providers/ScrollToAnchor.tsx`.
   - **Consume:** 2.9. **Produce:** `resolveAnchor(hash): { kind: 'none' } | { kind: 'section', id } |
