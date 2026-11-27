@@ -317,7 +317,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 7. Demo embebida
 
-- [ ] **7.1 Guion de la demo (puro + textos)**
+- [x] **7.1 Guion de la demo (puro + textos)**
   - **Archivos:** nuevos `features/demo/lib/homeDemo.ts` y `homeDemo.test.ts`; `es.ts`/`en.ts`
     (`homeDemo.sectors.{comercio,salud,finanzas,logistica}`: `question`, `answer`, `log` × 4 con
     `label`, `text`, `kind` — textos de `AW_DEMOS` de la maqueta).
@@ -329,7 +329,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Prueba:** `npm test` verde.
   - **Terminado cuando:** los 4 guiones existen en ES y EN con la misma forma.
 
-- [ ] **7.2 Elegir negocio y ver la conversación de ejemplo**
+- [x] **7.2 Elegir negocio y ver la conversación de ejemplo**
   - **Archivo:** `features/demo/components/HomeDemo.tsx`.
   - **Consume:** 7.1, 5.2. **Produce:** grupo `role="group" aria-label={pickLabel}` con 4 botones mono
     `aria-pressed` (salud elegido al inicio), y la reproducción del guion con `stageAt` (un
@@ -339,7 +339,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     ejemplo»; cambiar rápido de sector no deja filas de otro sector.
   - **Terminado cuando:** pasan «Elegir un negocio de ejemplo» y «Conversación de ejemplo rotulada».
 
-- [ ] **7.3 «Ahora pregúntele usted» contra la API**
+- [x] **7.3 «Ahora pregúntele usted» contra la API**
   - **Archivo:** `features/demo/components/HomeDemo.tsx`.
   - **Consume:** 7.2. **Produce:** `<form>` con `<label for>` «Ahora pregúntele usted», `<input
     maxLength={DEMO_MAX_CHARS}>` (52 px, `--campo-noche`, placeholder con el nombre) y botón `data-flash`

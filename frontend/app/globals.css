@@ -457,6 +457,9 @@ section[id] {
   .swap {
     animation: aw-pop 0.55s var(--silk) both;
   }
+  .pop {
+    animation: aw-pop 0.5s var(--swift) both;
+  }
 }
 @media (max-width: 900px) {
   .screen {
