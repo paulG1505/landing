@@ -63,8 +63,11 @@ function AskBlock({ slug, businessName, locale, label, placeholder, send }: AskB
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!draft.trim()) return;
-    if (await conversation.send(draft)) setDraft('');
+    const text = draft;
+    if (!text.trim()) return;
+    // Clear on send so what the visitor types while waiting survives the reply.
+    setDraft('');
+    if (!(await conversation.send(text))) setDraft(text);
   };
 
   return (
