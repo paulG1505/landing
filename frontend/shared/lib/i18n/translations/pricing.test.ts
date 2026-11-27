@@ -60,3 +60,12 @@ test('whatsapp prefilled messages exist for both buttons', () => {
     assert.notEqual(t.pricing.ctaMessage, t.pricing.custom.message);
   }
 });
+
+test('price figure is the number in the amount', () => {
+  for (const t of [es, en]) {
+    for (const item of t.pricing.items) {
+      assert.match(item.figure, /^\d+$/);
+      assert.ok(item.amount.includes(item.figure), `${item.amount} lacks ${item.figure}`);
+    }
+  }
+});

@@ -37,8 +37,13 @@ const Faq = dynamic(
   { loading: () => null }
 );
 
-const FinalCta = dynamic(
-  () => import('@/features/final-cta/components/FinalCta').then((mod) => ({ default: mod.FinalCta })),
+const HomeDemo = dynamic(
+  () => import('@/features/demo/components/HomeDemo').then((mod) => ({ default: mod.HomeDemo })),
+  { loading: () => null }
+);
+
+const Closing = dynamic(
+  () => import('@/features/final-cta/components/Closing').then((mod) => ({ default: mod.Closing })),
   { loading: () => null }
 );
 
@@ -48,13 +53,14 @@ export default function Home() {
       <ScrollToAnchor />
       <Hero />
       <PainPoints />
+      <HomeDemo />
       <Processes />
       <HowWeWork />
       <Why />
       <DemosSection />
       <Pricing />
       <Faq />
-      <FinalCta />
+      <Closing />
     </>
   );
 }

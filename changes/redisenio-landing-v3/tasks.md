@@ -128,7 +128,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     `aria-pressed="true"`. Tab + Enter también la elige.
   - **Terminado cuando:** las 5 opciones funcionan con ratón y teclado en ES y EN.
 
-- [ ] **2.5 Pantalla 3: estructura de «IA con orden»**
+- [x] **2.5 Pantalla 3: estructura de «IA con orden»**
   - **Archivos:** nuevo `features/demo/components/HomeDemo.tsx`; `es.ts`/`en.ts` (`homeDemo`:
     `headingA`, `headingB`, `pickLabel`, `logTitle`, `askLabel`, `placeholder` con `{name}`, `send`,
     `exampleNote` con `{name}`, `allDemos`, `trust`, `trackRecord`, `logTimes` × 4).
@@ -141,7 +141,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     `/demo`.
   - **Terminado cuando:** la estructura coincide con la maqueta a 1440 y 390 px.
 
-- [ ] **2.6 Pantalla 4: precio**
+- [x] **2.6 Pantalla 4: precio**
   - **Archivos:** `features/pricing/components/Pricing.tsx` (reescrito; borrar `PricingRow.tsx` si deja
     de usarse); `es.ts`/`en.ts` (`pricing`: agregar `heading.before`, `heading.highlight`,
     `items[].figure`, `items[].label`, `items[].line`, `terms`, `custom.lead`; conservar `amount`,
@@ -160,7 +160,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** a 390 px los números a 124 px no desbordan y el lector de pantalla
     (VoiceOver, ⌘F5) lee «USD 169 + IVA», no «USD 169» suelto ni «169».
 
-- [ ] **2.7 Pantalla 5: «¿Qué le está costando más?»**
+- [x] **2.7 Pantalla 5: «¿Qué le está costando más?»**
   - **Archivos:** nuevo `features/final-cta/components/Closing.tsx` (borrar `FinalCta.tsx`);
     `features/final-cta/index.ts`; `es.ts`/`en.ts` (`cta`: `titleA`, `titleB`, `highlight`,
     `description` = «15 minutos, sin costo.», `whatsapp`, `whatsappMessage`).
