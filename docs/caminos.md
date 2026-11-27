@@ -101,3 +101,11 @@ Decisión de diseño: ADR-011 (`docs/adr/ADR-011-demos-personalizadas-con-enlace
   bytes gzip (límite 2 KB). El e2e completo (Docker + navegador) está en `changes/demos-personalizadas/e2e/` de la raíz.
 - 2026-10-15 — El spec pedía ocultar el botón flotante con el CTA final; se implementó con el CTA del hero (`#assistant-cta`). Pendiente de que Paul lo confirme.
 - 2026-10-15 — Un 429 sin `estado` conocido (límite genérico por IP) ya no termina la demo: se muestra como error reintentable. Solo los `demo_*` conocidos cierran la conversación (`chat/chatOutcome.ts`).
+
+## 2026-11-27 — Rediseño v3 (redisenio-landing-v3)
+
+- ⚠ 2026-11-27 — **`python3 -m http.server` desde `frontend/out` no sirve `/como-trabajamos` ni `/preguntas`**: Next deja una carpeta con el mismo nombre junto a `como-trabajamos.html` y Python muestra el listado de la carpeta. GitHub Pages sí entrega el `.html` (verificado con `/privacidad`). Para probar en local con URL limpias hace falta un servidor que mapee `/x` a `x.html`.
+- ⚠ 2026-11-27 — **Chrome para iOS agrega `__gcruniqueid` a cada `<form>`** antes de que hidrate React: en `npm run dev` aparece la pastilla roja «1 Issue» (error de hidratación) en `HomeDemo`. No afecta producción; se decidió no ponerle `suppressHydrationWarning`.
+- Probar en el celular: `cd frontend && npm run dev -- -H 0.0.0.0` y abrir `http://<IP de la Mac>:3000` (`ipconfig getifaddr en0`). El aviso «Cross origin request… allowedDevOrigins» en la terminal es solo advertencia.
+- Probar la demo de la home con el build estático: `NEXT_PUBLIC_API_URL=http://127.0.0.1:8000 npm run build` + `node scripts/mock-chat-api.mjs`. Ese `out/` no debe publicarse a mano (el CI construye el suyo).
+- Grabaciones de pantalla del iPhone (HEVC) no se ven en el navegador de pruebas: `avconvert --source <in> --preset PresetMediumQuality --output <out.mp4>` las pasa a H.264. En esta Mac `swift` falla (`redefinition of module 'SwiftBridging'`) y no hay `ffmpeg`.
