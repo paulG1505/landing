@@ -276,7 +276,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 5. Destello al hacer clic
 
-- [ ] **5.1 Reglas del destello (puro)**
+- [x] **5.1 Reglas del destello (puro)**
   - **Archivos nuevos:** `shared/components/ui/flash/flashPlan.ts` y `flashPlan.test.ts`.
   - **Consume:** nada. **Produce:** `planFlash(input): FlashPlan | null` con `input = { event:
     'pointerdown' | 'click', pointerType, detail, clientX, clientY, targetRect, tone, hasFlashAttr,
@@ -288,7 +288,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Prueba:** `npm test` verde.
   - **Terminado cuando:** los 7 casos pasan.
 
-- [ ] **5.2 `ClickFlash` en toda la web**
+- [x] **5.2 `ClickFlash` en toda la web**
   - **Archivos:** nuevos `shared/components/ui/flash/ClickFlash.tsx` y `flashBus.ts`;
     `app/globals.css` (estilos `.fx` de la maqueta, variante reducida `fxFade` 240 ms y
     `forced-colors`); `app/layout.tsx` (monta `<ClickFlash />`).

@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import { HeaderOutsideHome } from "@/shared/components/layout/SiteHeader";
 import { Footer } from "@/shared/components/layout/Footer";
 import { ChatLauncher } from "@/shared/components/ui/chat/ChatLauncher";
+import { ClickFlash } from "@/shared/components/ui/flash/ClickFlash";
 import { StructuredData } from "@/shared/components/seo/StructuredData";
 import { StoreRehydrate } from "@/shared/components/providers/StoreRehydrate";
 import { MotionProvider } from "@/shared/components/providers/MotionProvider";
@@ -108,6 +109,7 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Footer />
           <ChatLauncher />
+          <ClickFlash />
         </MotionProvider>
       </body>
     </html>

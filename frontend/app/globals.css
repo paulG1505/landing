@@ -799,3 +799,95 @@ section[id] {
     transition-delay: 0ms !important;
   }
 }
+
+.fx {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 2147483000;
+  scale: var(--fx-size, 1);
+}
+.fx i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+.fx .core {
+  width: 10px;
+  height: 10px;
+}
+.fx .bloom {
+  width: 168px;
+  height: 168px;
+}
+.fx .ring {
+  width: 120px;
+  height: 120px;
+  border: 1px solid;
+}
+.fx[data-on] .core {
+  animation: fx-core 220ms var(--out-expo);
+}
+.fx[data-on] .bloom {
+  animation: fx-bloom 560ms var(--out-expo);
+}
+.fx[data-on] .ring {
+  animation: fx-ring 640ms var(--out-expo) 60ms backwards;
+}
+.fx[data-t="dark"] .core {
+  background: #EEE9E0;
+}
+.fx[data-t="dark"] .bloom {
+  mix-blend-mode: screen;
+  background: radial-gradient(circle, rgb(92 195 204 / 0.7) 0, rgb(92 195 204 / 0.32) 30%, rgb(92 195 204 / 0) 68%);
+}
+.fx[data-t="dark"] .ring {
+  border-color: rgb(92 195 204 / 0.9);
+}
+.fx[data-t="light"] .core {
+  background: #FFFFFF;
+}
+.fx[data-t="light"] .bloom {
+  mix-blend-mode: multiply;
+  background: radial-gradient(circle, rgb(92 195 204 / 0.55) 0, rgb(92 195 204 / 0.26) 30%, rgb(92 195 204 / 0) 68%);
+}
+.fx[data-t="light"] .ring {
+  border-color: rgb(11 101 113 / 0.6);
+}
+@keyframes fx-core {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(0.4); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(2.4); }
+}
+@keyframes fx-bloom {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.12); }
+  14% { opacity: 1; transform: translate(-50%, -50%) scale(0.45); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes fx-ring {
+  from { opacity: 0.9; transform: translate(-50%, -50%) scale(0.3); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes fx-fade {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx .core,
+  .fx .ring {
+    display: none;
+  }
+  .fx[data-on] .bloom {
+    animation: fx-fade 240ms linear;
+  }
+}
+@media (forced-colors: active) {
+  .fx {
+    display: none;
+  }
+}
