@@ -250,7 +250,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 4. Quitar el modo oscuro y ajustar `/privacidad`
 
-- [ ] **4.1 Sin selector de tema (decisión 4)**
+- [x] **4.1 Sin selector de tema (decisión 4)**
   - **Archivos:** `app/layout.tsx` (el script del `<head>` queda en
     `document.documentElement.classList.add('js')`; sin `suppressHydrationWarning` si ya no hace
     falta); `app/globals.css` (borrar `html[data-theme="dark"]` y el bloque
@@ -262,7 +262,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** con `localStorage['aiworks-tema']='oscuro'` la web se ve en Papel y Noche, y
     build, test y lint están verdes.
 
-- [ ] **4.2 Texto de privacidad**
+- [x] **4.2 Texto de privacidad**
   - **Archivos:** `es.ts`/`en.ts` (`legal.privacy.updated` y el párrafo que hoy dice «idioma y modo
     claro u oscuro»); `shared/lib/i18n/translations/privacy.test.ts` (agregar, sin quitar).
   - **Consume:** 4.1. **Produce:** párrafo nuevo: el navegador guarda el idioma y, mientras la pestaña

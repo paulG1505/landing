@@ -28,3 +28,12 @@ test('the English policy describes the appointment data of the demos', () => {
 test('both languages keep the same number of privacy sections', () => {
   assert.equal(es.legal.privacy.sections.length, en.legal.privacy.sections.length);
 });
+
+test('privacy no longer mentions a theme preference', () => {
+  const esText = JSON.stringify(es.legal.privacy);
+  const enText = JSON.stringify(en.legal.privacy);
+  assert.doesNotMatch(esText, /modo claro u oscuro/);
+  assert.doesNotMatch(enText, /light or dark/);
+  assert.match(esText, /1727406223001/);
+  assert.match(enText, /1727406223001/);
+});
