@@ -355,7 +355,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 8. Amanecer
 
-- [ ] **8.1 Descifrado de «hecho solo.» (puro)**
+- [x] **8.1 Descifrado de «hecho solo.» (puro)**
   - **Archivos nuevos:** `features/hero/lib/scramble.ts` y `scramble.test.ts`.
   - **Consume:** nada. **Produce:** `scrambleFrame(target, progress, rand)` y `SCRAMBLE_GLYPHS`.
   - **Test:** `progress 0` → mismo largo, espacios y puntos en su sitio; `progress 1` → igual a
@@ -364,7 +364,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Prueba:** `npm test` verde.
   - **Terminado cuando:** los 4 casos pasan.
 
-- [ ] **8.2 Cuándo corre el amanecer (puro)**
+- [x] **8.2 Cuándo corre el amanecer (puro)**
   - **Archivos nuevos:** `features/hero/lib/dawnPlan.ts` y `dawnPlan.test.ts`.
   - **Consume:** nada. **Produce:** `DAWN_STORAGE_KEY = 'aiworks-amanecer'`, `DAWN_TIMELINE` (ms de
     `design.md` §4), `shouldPlayDawn({ reduced, hash, scrollY, seen })`, `readSeen(storage)` y
@@ -376,7 +376,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Prueba:** `npm test` verde.
   - **Terminado cuando:** los casos pasan.
 
-- [ ] **8.3 Noche, conversación y salto**
+- [x] **8.3 Noche, conversación y salto**
   - **Archivos:** nuevos `features/hero/components/DawnNight.tsx` y `features/hero/hooks/useDawn.ts`;
     `Hero.tsx`.
   - **Consume:** 2.3, 8.2. **Produce:** `useDawn()` → `{ playing, stage, skip, replay }`; si
@@ -390,7 +390,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** pasan «Amanecer una vez por sesión» (salvo el círculo y el descifrado),
     «Saltar el amanecer» y «Amanecer accesible».
 
-- [ ] **8.4 El círculo de luz, el descifrado y «Ver amanecer otra vez»**
+- [x] **8.4 El círculo de luz, el descifrado y «Ver amanecer otra vez»**
   - **Archivos:** `useDawn.ts`, `Hero.tsx`, `app/globals.css` (anillo `.dawn-ring`, borde 2 px
     `#5CC3CC`), `es.ts`/`en.ts` (`hero.replay` ya existe desde 2.3).
   - **Consume:** 8.1, 8.3, 5.2. **Produce:** en 2600 ms, `triggerFlash` en el origen (`dark`, 1,6),
