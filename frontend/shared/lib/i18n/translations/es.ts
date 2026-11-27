@@ -1,7 +1,12 @@
 export const es = {
   header: {
     logo: "AIworks",
+    homeLabel: "AIworks, ir al inicio",
+    navLabel: "Principal",
+    whatsapp: "WhatsApp",
+    whatsappMessage: "Hola, quiero saber más del asistente.",
     nav: {
+      demo: "Demo",
       services: "Servicios",
       processes: "Procesos",
       howWeWork: "Cómo trabajamos",
@@ -14,16 +19,35 @@ export const es = {
     cta: "Hablar por WhatsApp",
   },
   hero: {
-    category: { before: "Software con ", highlight: "inteligencia artificial", after: "." },
-    benefit: "Hecho para el trabajo que su equipo hoy hace a mano.",
-    subtitle:
-      "Somos una consultora: construimos el software que hace ese trabajo solo, y dejamos a la vista cada decisión que toma.",
-    trackRecord: "Más de 7 años resolviendo procesos.",
-    cta: {
-      primary: "Pruebe nuestro asistente",
-      whatsapp: "Escribir por WhatsApp",
-      demo: "Ver una demo en vivo",
+    label: "Inicio",
+    lineA: "El trabajo que su equipo hace a mano,",
+    lineB: "hecho solo.",
+    lineB1: "hecho",
+    lineB2: "solo.",
+    lede: "Un asistente de WhatsApp que responde a sus clientes y anota cada decisión.",
+    cta: "Probar el asistente",
+    replay: "Ver amanecer otra vez",
+    sampleLabel: "Conversación de ejemplo",
+    chat: {
+      client: "Hola, ¿hacen entregas hoy en Cumbayá?",
+      assistant: "Sí, hasta las 18:00. ¿Le reservo el pedido?",
+      time: "21:47",
     },
+  },
+  painPoints: {
+    heading: "Quiero dejar de",
+    todayLabel: "Hoy",
+    withLabel: "Con AIworks",
+    pickLabel: "Elija lo que quiere dejar de hacer",
+    options: [
+      { verb: "contestar tarde por WhatsApp", today: "Los mensajes de la noche se contestan al día siguiente.", withAi: "Se responden al llegar y pasan a ventas con prioridad." },
+      { verb: "conciliar el banco a mano", today: "Una persona cruza el extracto línea por línea.", withAi: "El sistema cruza todo; usted revisa solo lo que no cuadra." },
+      { verb: "digitar facturas en PDF", today: "Cada factura se digita de nuevo. Los errores salen al cierre.", withAi: "Se leen al llegar; una persona revisa solo lo dudoso." },
+      { verb: "perseguir facturas vencidas", today: "Alguien escribe a cada cliente, uno por uno, cuando puede.", withAi: "El sistema recuerda el pago; una persona atiende las respuestas." },
+      { verb: "adivinar el inventario real", today: "La hoja de cálculo y el sistema dicen cosas distintas.", withAi: "Se concilian a diario; usted ve solo las diferencias." },
+    ],
+    serviceNames: ["Automatización", "Asistentes con IA", "Lectura de documentos", "Integración"],
+    other: { label: "¿Otro proceso? Cuéntenoslo", message: "Hola, quiero contarles un proceso." },
   },
   log: {
     title: "Registro operativo",

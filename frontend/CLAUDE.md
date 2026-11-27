@@ -132,7 +132,8 @@ Los tokens y su contraste calculado están comentados al inicio de `app/globals.
   WhatsApp). Usa los componentes `m.*`, no `motion.*` (`LazyMotion` va en modo `strict`).
 - `MotionConfig reducedMotion="user"` aplica el movimiento reducido a todo Motion; en CSS,
   cada animación nueva va dentro de `@media (prefers-reduced-motion: no-preference)`.
-- Solo `transform` y `opacity`. Desplazamientos de hover < 2 px. Todo movimiento que dure
+- Solo `transform` y `opacity`. Desplazamientos de hover < 2 px, salvo las opciones de «Quiero
+  dejar de…» (`.option-row`), que se corren 6 px como en la maqueta v3 (decisión de Paul, 2026-11-27). Todo movimiento que dure
   más de 5 s debe poder pausarse (la cinta de tecnologías tiene su botón).
 
 ## Rutas /wa

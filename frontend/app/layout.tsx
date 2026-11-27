@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
-import { Header } from "@/shared/components/layout/Header";
+import { HeaderOutsideHome } from "@/shared/components/layout/SiteHeader";
 import { Footer } from "@/shared/components/layout/Footer";
 import { ChatLauncher } from "@/shared/components/ui/chat/ChatLauncher";
 import { StructuredData } from "@/shared/components/seo/StructuredData";
@@ -12,7 +12,7 @@ import "./globals.css";
 
 const displayFont = Bricolage_Grotesque({
   subsets: ["latin"],
-  axes: ["opsz"],
+  axes: ["opsz", "wdth"],
   variable: "--face-display",
   display: "swap",
 });
@@ -105,7 +105,7 @@ export default function RootLayout({
         <StoreRehydrate />
         <StructuredData />
         <MotionProvider>
-          <Header />
+          <HeaderOutsideHome />
           <main id="main">{children}</main>
           <Footer />
           <ChatLauncher />

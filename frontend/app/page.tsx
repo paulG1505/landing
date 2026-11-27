@@ -2,8 +2,8 @@ import dynamic from 'next/dynamic';
 import { Hero } from '@/features/hero/components/Hero';
 import { ScrollToAnchor } from '@/shared/components/providers/ScrollToAnchor';
 
-const Services = dynamic(
-  () => import('@/features/services/components/Services').then((mod) => ({ default: mod.Services })),
+const PainPoints = dynamic(
+  () => import('@/features/pain-points/components/PainPoints').then((mod) => ({ default: mod.PainPoints })),
   { loading: () => null }
 );
 
@@ -47,7 +47,7 @@ export default function Home() {
     <>
       <ScrollToAnchor />
       <Hero />
-      <Services />
+      <PainPoints />
       <Processes />
       <HowWeWork />
       <Why />

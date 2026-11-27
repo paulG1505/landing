@@ -1,7 +1,12 @@
 export const en = {
   header: {
     logo: "AIworks",
+    homeLabel: "AIworks, go to the home page",
+    navLabel: "Main",
+    whatsapp: "WhatsApp",
+    whatsappMessage: "Hi, I would like to know more about the assistant.",
     nav: {
+      demo: "Demo",
       services: "Services",
       processes: "Processes",
       howWeWork: "How we work",
@@ -14,16 +19,35 @@ export const en = {
     cta: "Message us on WhatsApp",
   },
   hero: {
-    category: { before: "", highlight: "AI-powered", after: " software." },
-    benefit: "Built for the work your team still does by hand.",
-    subtitle:
-      "We are a consultancy: we build the software that does that work on its own, and we leave every decision it makes in plain view.",
-    trackRecord: "Over 7 years solving processes.",
-    cta: {
-      primary: "Try our assistant",
-      whatsapp: "Message us on WhatsApp",
-      demo: "See a live demo",
+    label: "Home",
+    lineA: "The work your team does by hand,",
+    lineB: "done for you.",
+    lineB1: "done",
+    lineB2: "for you.",
+    lede: "A WhatsApp assistant that answers your customers and logs every decision.",
+    cta: "Try the assistant",
+    replay: "Watch the sunrise again",
+    sampleLabel: "Sample conversation",
+    chat: {
+      client: "Hi, do you deliver to Cumbayá today?",
+      assistant: "Yes, until 6 pm. Shall I hold the order for you?",
+      time: "21:47",
     },
+  },
+  painPoints: {
+    heading: "I want to stop",
+    todayLabel: "Today",
+    withLabel: "With AIworks",
+    pickLabel: "Choose what you want to stop doing",
+    options: [
+      { verb: "answering WhatsApp late", today: "Messages that arrive at night get answered the next day.", withAi: "They are answered on arrival and go to sales with priority." },
+      { verb: "reconciling the bank by hand", today: "Someone checks the statement line by line.", withAi: "The system matches everything; you review only what does not add up." },
+      { verb: "retyping PDF invoices", today: "Every invoice is typed again. Mistakes show up at month end.", withAi: "They are read on arrival; a person reviews only what is unclear." },
+      { verb: "chasing overdue invoices", today: "Someone writes to each customer, one by one, when they can.", withAi: "The system sends the payment reminder; a person handles the replies." },
+      { verb: "guessing the real inventory", today: "The spreadsheet and the system say different things.", withAi: "They are reconciled daily; you see only the differences." },
+    ],
+    serviceNames: ["Automation", "AI assistants", "Document reading", "Integration"],
+    other: { label: "Another process? Tell us", message: "Hi, I would like to tell you about a process." },
   },
   log: {
     title: "Operations log",

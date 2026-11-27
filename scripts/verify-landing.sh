@@ -45,8 +45,8 @@ absent "GDPR"           "GDPR badge removed"
 absent "Empresa líder"  "superlative 'Empresa líder' removed"
 
 heading "Requirement: Spanish by default"
-absent_in_html "Built for the work your team" "pre-rendered HTML is not in English"
-present        "Built for the work your team" "English copy ships in the bundle (the EN selector needs it)"
+absent_in_html "The work your team does by hand" "pre-rendered HTML is not in English"
+present        "The work your team does by hand" "English copy ships in the bundle (the EN selector needs it)"
 
 heading "Requirement: Ecuadorian geographic identity"
 absent  "MX"        "no MX occurrence (addressCountry or es_MX)"

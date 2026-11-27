@@ -36,7 +36,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 1. Tokens y escala de letras
 
-- [ ] **1.1 Tokens v3 en `globals.css`**
+- [x] **1.1 Tokens v3 en `globals.css`**
   - **Archivo:** `frontend/app/globals.css`.
   - **Consume:** nada. **Produce:** `--burbuja-cliente`, `--campo-noche`, `--hueso-medio` (`#A8A196`),
     `--hueso-suave`, `--regla-noche` (`#2E2A26`), `--d-xl`, `--d-l`, `--d-m`, `--h`, `--lede`,
@@ -49,7 +49,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** el build pasa, los 4 tokens nuevos de color llevan su contraste anotado y
     la web actual se ve igual que antes en `npm run dev`.
 
-- [ ] **1.2 Letra display v3 y clases del sistema**
+- [x] **1.2 Letra display v3 y clases del sistema**
   - **Archivos:** `frontend/app/layout.tsx`, `frontend/app/globals.css`.
   - **Consume:** 1.1. **Produce:** fuente con `axes: ["opsz", "wdth"]`; clases en `@layer components`:
     `.display` (Bricolage 700, `'wdth' 80, 'opsz' 96`, `-0.04em`), `.display-xl` (`--d-xl`, `.82`,
@@ -60,7 +60,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     › Computed `font-variation-settings: "wdth" 80, "opsz" 96`; bórralo después.
   - **Terminado cuando:** las clases existen, el build pasa y no queda ningún elemento de prueba.
 
-- [ ] **1.3 Wordmark**
+- [x] **1.3 Wordmark**
   - **Archivo nuevo:** `frontend/shared/components/ui/Wordmark.tsx`.
   - **Consume:** 1.2. **Produce:** `<Wordmark size?>`: «AI» en `--marca` (o `--marca-clara` dentro de
     `.tone-night`, por herencia de variable) + «works»; Bricolage 700, `-0.02em`, 24 px (22 px en el pie).
@@ -69,14 +69,14 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
 
 ## 2. Las cinco pantallas con su texto (es y en)
 
-- [ ] **2.1 Test de forma de los idiomas**
+- [x] **2.1 Test de forma de los idiomas**
   - **Archivo nuevo:** `frontend/shared/lib/i18n/translations/shape.test.ts`.
   - **Consume:** nada. **Produce:** el test «es and en have the same shape» que compara la forma de
     `es` y `en` completos (misma función `shape` que `pricing.test.ts`).
   - **Prueba:** `npm test` → 88 pruebas, todas pasan.
   - **Terminado cuando:** el test existe y pasa con los textos de hoy.
 
-- [ ] **2.2 Encabezado nuevo (`SiteHeader`) y relleno de las páginas**
+- [x] **2.2 Encabezado nuevo (`SiteHeader`) y relleno de las páginas**
   - **Archivos:** nuevo `frontend/shared/components/layout/SiteHeader.tsx`; `app/layout.tsx`;
     `es.ts` y `en.ts` (`header`: `homeLabel`, `navLabel`, `nav.demo`, `nav.pricing`, `whatsapp`,
     `whatsappMessage`); `features/demo/components/DemoAssistant.tsx` (`pt-[4.25rem]` y
@@ -96,7 +96,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** a 390 px se ven solo `AIworks` y `WhatsApp ↗`; a 1440 px también `Demo` y
     `Precios`; el enlace de WhatsApp abre el chat con el mensaje escrito.
 
-- [ ] **2.3 Pantalla 1: hero en su estado final**
+- [x] **2.3 Pantalla 1: hero en su estado final**
   - **Archivos:** `features/hero/components/Hero.tsx` (reescrito); borrar
     `features/hero/components/OperationsLog.tsx`; `app/layout.tsx` (no monta `SiteHeader` cuando
     `pathname === '/'`; el layout se queda server component, así que el condicional va en un
@@ -114,7 +114,7 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
   - **Terminado cuando:** el hero se ve como la maqueta a 1440 y 390 px en español y en inglés (pulsa
     EN en el pie actual), sin desborde horizontal a 320 px en los dos idiomas.
 
-- [ ] **2.4 Pantalla 2: «Quiero dejar de…»**
+- [x] **2.4 Pantalla 2: «Quiero dejar de…»**
   - **Archivos:** nuevo `features/pain-points/components/PainPoints.tsx` y
     `features/pain-points/index.ts`; `es.ts`/`en.ts` (`painPoints`: `heading`, `todayLabel`,
     `withLabel`, `options` × 5 con `verb`, `today`, `withAi` — textos de `AW_OPTS` de la maqueta —,
@@ -405,6 +405,20 @@ Si `npm test` no da 87 verdes, para y avísale a Paul.
     también con «Reducir movimiento» (no corre) y con JavaScript desactivado (estado final).
 
 ## 9. Verificación y documentación
+
+- [x] **9.0 `e2e-landing.sh` sin depender de Google Chrome** (agregada el 2026-11-27: Chrome no está
+  instalado en la Mac de Katty; aprobada por Katty)
+  - **Archivo:** `scripts/e2e-landing.sh`.
+  - **Consume:** nada. **Produce:** el script usa Chrome si existe en
+    `/Applications/Google Chrome.app` (igual que hoy) y, si no, `agent-browser` (CLI global con su
+    propio Chromium; no entra en `package.json`). Con `agent-browser`: sesión aislada `e2e-landing`,
+    `set viewport` por ancho (320, 360, 390, 414, 768, 1024, 1440), `open` de `index.html`, `eval` de
+    la misma medición de desborde, misma tabla PASS/FAIL, y capturas `--full` en `.e2e/` con los
+    mismos nombres (`mobile-500`, `tablet-768`, `desktop-1440`). Si no hay ninguno de los dos, sale
+    con código 2 y lo dice.
+  - **Prueba:** sobre el build actual → 7 filas medidas y 3 capturas en `.e2e/`; con una copia
+    temporal de `out/` que tenga un elemento de 2000 px de ancho → `FAIL` en los 7 anchos.
+  - **Terminado cuando:** las dos pruebas dan lo esperado y la ruta con Chrome no cambió.
 
 - [ ] **9.1 `verify-landing.sh` al día**
   - **Archivo:** `scripts/verify-landing.sh`.
